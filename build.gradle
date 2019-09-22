@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.1.8.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id 'org.gretty' version '2.3.1'
 }
 
 group = 'com.academicPlanner'
@@ -28,4 +29,30 @@ dependencies {
 	// adicionando o cucumber
 	testImplementation 'io.cucumber:cucumber-java:4.7.2' 
 	testImplementation 'io.cucumber:cucumber-junit:4.7.2' 
+}
+
+gretty {
+	//Define o caminho da aplicação no Servlet Container. Neste caso estou assumindo que esta aplicação está
+	//na raíz. Se eu não fizesse isso, minha aplicação seria executada no contexto "/weddemo"
+	contextPath '/' 
+	//Eu preciso definir a versão do Jetty no caso de estar trabalhando com uma vers�o do Java superior ao 8
+	//O Gretty assume como padrão uma versão do Jetty que suporta apenas o Java8
+	servletContainer 'jetty9.4' 
+}
+
+configurations{
+	cucumberRuntime{
+		extendsFrom testImplementation
+	}
+}
+
+task cucumber() {
+	dependsOn assemble, compileTestJava
+	doLast {
+		javaexec {
+			main = "io.cucumber.core.cli.Main"
+			classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+			args = ['--plugin', 'pretty', '--glue', 'webdemo.cucumber', 'src/test/resources']
+		}
+	}
 }
