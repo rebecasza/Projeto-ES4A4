@@ -1,0 +1,205 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles
+@import "node_modules/@coreui/coreui/scss/coreui";
+@import "node_modules/angular-calendar/css/angular-calendar";
+@import "~primeicons/primeicons.css";
+@import '~fullcalendar/dist/fullcalendar.min.css';
+
+// If you want to add something do it here
+@import "custom";
+.tree-node {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+td {
+    cursor: pointer;
+}
+
+.node-content-wrapper-active,
+.node-content-wrapper.node-content-wrapper-active:hover,
+.node-content-wrapper-active.node-content-wrapper-focused,
+.tree-node-collapsed {
+  background-color: white;
+}
+
+.node-content-wrapper-focused { background: white }
+.node-content-wrapper:hover { background: white }
+
+.fc .fc-toolbar>*>:first-child {
+    margin-left: 0;
+    color: white;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+    line-height: inherit;
+    color: white;
+    white-space: normal;
+  }
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fc-title{
+    color: white;
+}
+.fc-event .fc-content {
+    position: relative;
+    z-index: 1;
+    background: #595d72;
+}
+
+ /* Column Priorities */
+ @media only all {
+    th.ui-p-6,
+    td.ui-p-6,
+    th.ui-p-5,
+    td.ui-p-5,
+    th.ui-p-4,
+    td.ui-p-4,
+    th.ui-p-3,
+    td.ui-p-3,
+    th.ui-p-2,
+    td.ui-p-2,
+    th.ui-p-1,
+    td.ui-p-1 {
+        display: none;
+    }
+}
+
+/* Show priority 1 at 320px (20em x 16px) */
+@media screen and (min-width: 20em) {
+    th.ui-p-1,
+    td.ui-p-1 {
+        display: table-cell;
+    }
+}
+
+/* Show priority 2 at 480px (30em x 16px) */
+@media screen and (min-width: 30em) {
+    th.ui-p-2,
+    td.ui-p-2 {
+        display: table-cell;
+    }
+}
+
+/* Show priority 3 at 640px (40em x 16px) */
+@media screen and (min-width: 40em) {
+    th.ui-p-3,
+    td.ui-p-3 {
+        display: table-cell;
+    }
+}
+
+/* Show priority 4 at 800px (50em x 16px) */
+@media screen and (min-width: 50em) {
+    th.ui-p-4,
+    td.ui-p-4 {
+        display: table-cell;
+    }
+}
+
+/* Show priority 5 at 960px (60em x 16px) */
+@media screen and (min-width: 60em) {
+    th.ui-p-5,
+    td.ui-p-5 {
+        display: table-cell;
+    }
+}
+
+/* Show priority 6 at 1,120px (70em x 16px) */
+@media screen and (min-width: 70em) {
+    th.ui-p-6,
+    td.ui-p-6 {
+        display: table-cell;
+    }
+}
+
+.nav-tabs .nav-link {
+    color: #73818f;
+    background: beige;
+}
+
+.tab {
+    padding-left: 5px;
+}
+
+.fa-1x{
+    font-size:0.8em;
+}
+.fa-2x{
+    font-size:0.9em;
+}
+.fa-3x{
+    font-size:1.2em;
+}
+.fa-4x{
+    font-size:1.4em;
+}
+.fa-5x{
+    font-size:1.8em;
+}
+.fa-mycustomx{
+    font-size:3.2em;
+}
+
+p#info {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    background-color: white;
+    color: red;
+    padding: 20px;
+}
+
+div#graf {
+    width: 100%;
+    margin:  5px auto;
+}
+
+ul#listGroup {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+label.picDate {
+    color:white;
+    white-space: nowrap;
+    margin: 0 10px;
+}
+
+p#separator {
+    margin-bottom: 0px;
+}
+
+li#listgroupItem {
+    margin-bottom: 10px;
+}
+
+div.ngb-tp {
+    padding: 0px;
+    margin: 0px;
+    max-height: 40px;
+}
+
+div.ngb-tp > div > button.btn.btn-link {
+    padding: 0px 10px;
+    border-width: 0px;
+}
+
+
+.divLegends {
+    font-size: 13px;
+}

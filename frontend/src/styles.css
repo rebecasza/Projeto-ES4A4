@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~angular-tree-component/dist/angular-tree-component.css';
+
+body {
+    padding-top: 80px;
+}
+.starter-template {
+     padding: 3rem 1.5rem;
+     text-align: center;
+ }
+
+li.borderless {
+     border: 0 none;
+}
+
+input[type=color].form-control {
+    padding: 0px;
+}
+
+div.ngb-tp {
+    padding: 0px;
+    margin: 0px;
+    max-height: 40px;
+}
+
+div.ngb-tp > div > button.btn.btn-link {
+    padding: 0px 10px;
+    border-width: 0px;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+  }
+
