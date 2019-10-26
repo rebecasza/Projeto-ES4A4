@@ -1,12 +1,24 @@
 import { Component } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './full-layout.component.html'
+  templateUrl: './full-layout.component.html',
+  styleUrls: ['./full-layout.component.css']
 })
 
 export class FullLayoutComponent {
   calendarPlugins = [dayGridPlugin];
+
+  constructor(public router: Router) {}
+
+
+  logout() {
+    sessionStorage.clear();
+    this.router.navigateByUrl('/login');
+    location.reload();
+  }
+
 }
 

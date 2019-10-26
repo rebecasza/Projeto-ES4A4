@@ -1,3 +1,14 @@
 
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
+
+#button-navbar{
+  background-color: #2f353a !important;
+  padding-left: 12.7%;
+  border-radius: 0;
+}
+
+#icon{
+  color: white;
+}
+
