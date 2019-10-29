@@ -29,7 +29,12 @@ dependencies {
 	// adicionando o cucumber
 	testImplementation 'io.cucumber:cucumber-java:4.7.2' 
 	testImplementation 'io.cucumber:cucumber-junit:4.7.2' 
+	
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.8'
 }
+
 
 gretty {
 	//Define o caminho da aplicação no Servlet Container. Neste caso estou assumindo que esta aplicação está
