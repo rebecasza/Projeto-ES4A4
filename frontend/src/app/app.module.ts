@@ -20,6 +20,7 @@ import { AppRoutingModule } from './app.routing';
 // Import containers
 import { FullLayoutComponent} from './containers';
 import { TreeModule } from 'angular-tree-component';
+import { LoginComponent } from './containers';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -56,7 +57,8 @@ const APP_CONTAINERS = [
 
   declarations: [
     AppComponent,
-    ...APP_CONTAINERS
+    ...APP_CONTAINERS,
+    LoginComponent
   ],
   entryComponents: [ ],
   bootstrap: [ AppComponent ]
