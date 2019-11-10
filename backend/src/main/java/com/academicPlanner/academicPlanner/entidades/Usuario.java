@@ -1,6 +1,9 @@
 package com.academicPlanner.academicPlanner.entidades;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Usuario {
@@ -13,6 +16,8 @@ public class Usuario {
 	
 	private String sobrenome;
 	
+	@SuppressWarnings("deprecation")
+	@NotBlank(message = "Email é obrigatório")
 	private String email;
 	
 	private String senha;
@@ -56,5 +61,5 @@ public class Usuario {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 }
