@@ -1,9 +1,7 @@
 package com.academicPlanner.academicPlanner.entidades;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Usuario {
@@ -12,14 +10,16 @@ public class Usuario {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 	
 	private String sobrenome;
 	
-	@SuppressWarnings("deprecation")
+	
 	@NotBlank(message = "Email é obrigatório")
 	private String email;
 	
+	@NotBlank(message = "Senha é obrigatório")
 	private String senha;
 
 	public String getSobrenome() {
@@ -61,5 +61,6 @@ public class Usuario {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 
 }
