@@ -1,12 +1,9 @@
-package com.academicPlanner.academicPlanner.entidades;
-
-import java.util.ArrayList;
+package entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Materia {

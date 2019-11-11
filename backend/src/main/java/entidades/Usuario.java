@@ -1,4 +1,4 @@
-package com.academicPlanner.academicPlanner.entidades;
+package entidades;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

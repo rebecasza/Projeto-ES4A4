@@ -1,4 +1,4 @@
-package com.academicPlanner.academicPlanner;
+package controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.academicPlanner.academicPlanner.entidades.UsuarioRepository;
-import com.academicPlanner.academicPlanner.entidades.Erro;
-import com.academicPlanner.academicPlanner.entidades.ResourceNotFoundException;
-import com.academicPlanner.academicPlanner.entidades.Usuario;
+import entidades.Erro;
+import entidades.ResourceNotFoundException;
+import entidades.Usuario;
+import repository.UsuarioRepository;
 
 
 
