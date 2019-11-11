@@ -7,9 +7,9 @@ import { Router, NavigationEnd } from '@angular/router';
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent implements OnInit {
-  title = 'Academic';
+  title = 'Academic Planner';
 
-  static API_URL="http://localhost:8080";
+  static API_URL='http://localhost:8080';
 
   constructor(private router: Router) { }
 
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
       if (!(evt instanceof NavigationEnd)) {
         return;
       }
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     });
   }
 }

@@ -1,7 +1,9 @@
-package com.academicPlanner.academicPlanner.entidades;
+package com.academicPlanner.academicPlanner.Repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
+import com.academicPlanner.academicPlanner.Model.Usuario;
 
 
 @Repository

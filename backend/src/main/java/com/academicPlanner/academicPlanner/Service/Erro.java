@@ -1,4 +1,4 @@
-package com.academicPlanner.academicPlanner.entidades;
+package com.academicPlanner.academicPlanner.Service;
 
 public class Erro {
 	private String mensagem;

@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import {
-  LoginComponent,
   FullLayoutComponent
 } from './containers';
+
+import { LoginComponent } from '../app/views/login';
+
 
 export const routes: Routes = [
   {
@@ -35,4 +37,5 @@ export const routes: Routes = [
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
+
 export class AppRoutingModule {}

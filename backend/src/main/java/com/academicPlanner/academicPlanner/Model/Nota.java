@@ -1,4 +1,4 @@
-package com.academicPlanner.academicPlanner.entidades;
+package com.academicPlanner.academicPlanner.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

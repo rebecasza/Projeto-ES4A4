@@ -1,4 +1,4 @@
-package com.academicPlanner.academicPlanner;
+package com.academicPlanner.academicPlanner.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,16 +13,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.academicPlanner.academicPlanner.entidades.UsuarioRepository;
-import com.academicPlanner.academicPlanner.entidades.Erro;
-import com.academicPlanner.academicPlanner.entidades.ResourceNotFoundException;
-import com.academicPlanner.academicPlanner.entidades.Usuario;
+import com.academicPlanner.academicPlanner.Model.Usuario;
+import com.academicPlanner.academicPlanner.Repository.UsuarioRepository;
+import com.academicPlanner.academicPlanner.Service.Erro;
+import com.academicPlanner.academicPlanner.Service.ResourceNotFoundException;
 
 
 
 @RestController
+@RequestMapping("/usuario")
 public class UsuarioController {
 
 	
@@ -35,7 +37,7 @@ public class UsuarioController {
 	
 	// Mostrar todos os usuários 
 	
-	@GetMapping("/usuarios/all")
+	@GetMapping("/all")
 	public List<Usuario> todosUsuarios() {
 	    return (List<Usuario>) repository.findAll();
 
@@ -44,7 +46,7 @@ public class UsuarioController {
 	
 	// Criar um usuário
 	
-	@PostMapping ("/usuario/create")
+	@PostMapping ("/create")
 	public Object criar(@RequestBody @Valid Usuario usuario, BindingResult result) {
 		if (result.hasErrors()) {
 	        List<FieldError> errors = result.getFieldErrors();
@@ -67,14 +69,14 @@ public class UsuarioController {
 	
 	// Puxar um único usuário
 	
-	@GetMapping("/usuario/{id}")
+	@GetMapping("/{id}")
 	public Usuario usuarioDetalhe(@PathVariable Long id) {
 	  return repository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado"));
 	 }
 	
 	// Editar um usuário
 	
-	@PutMapping("/usuario/{id}")
+	@PutMapping("/{id}")
 	public Usuario usuarioEditar (@RequestBody Usuario usuarioEdit,@PathVariable Long id) {
 		
 		return repository.findById(id).map(usuario -> {
@@ -89,10 +91,8 @@ public class UsuarioController {
 	}
 	
 	// Deletar um usuário
-	@DeleteMapping("usuario/{id}")
+	@DeleteMapping("/{id}")
 	public void usuarioDelete(@PathVariable Long id) {
 		repository.deleteById(id);
-	}
-	
-	
+	}	
 }

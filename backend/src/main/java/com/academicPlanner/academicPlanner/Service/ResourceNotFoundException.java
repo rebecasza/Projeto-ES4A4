@@ -1,4 +1,4 @@
-package com.academicPlanner.academicPlanner.entidades;
+package com.academicPlanner.academicPlanner.Service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
