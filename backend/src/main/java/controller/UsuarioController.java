@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import entidades.Erro;
-import entidades.ResourceNotFoundException;
-import entidades.Usuario;
+import model.Usuario;
 import repository.UsuarioRepository;
+import service.Erro;
+import service.ResourceNotFoundException;
 
 
 

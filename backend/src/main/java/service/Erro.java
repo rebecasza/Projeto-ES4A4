@@ -1,4 +1,4 @@
-package entidades;
+package service;
 
 public class Erro {
 	private String mensagem;
