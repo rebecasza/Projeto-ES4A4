@@ -19,5 +19,6 @@ public class Nota {
 	
 	/*
 	private Materia materia;
+	spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 	*/
 }

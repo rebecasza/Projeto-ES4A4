@@ -24,7 +24,7 @@ public class Materia {
 	
 	@ManyToOne
 	private ArrayList<Nota> notas;
-	*/
+*/
 	private float media;
 	private int tipoMedia;
 	// tipo 1- média aritmética
@@ -71,12 +71,9 @@ public class Materia {
 		this.tipoMedia = tipoMedia;
 	}
 	
-	
-	
-	
 	public void calculaMedia() {
 		if(this.tipoMedia == 1) {
-			
+		
 		}
 	}
 	
