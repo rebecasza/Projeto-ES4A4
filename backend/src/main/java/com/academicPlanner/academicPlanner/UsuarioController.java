@@ -1,7 +1,12 @@
 package com.academicPlanner.academicPlanner;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.academicPlanner.academicPlanner.entidades.UsuarioRepository;
+import com.academicPlanner.academicPlanner.entidades.Erro;
 import com.academicPlanner.academicPlanner.entidades.ResourceNotFoundException;
 import com.academicPlanner.academicPlanner.entidades.Usuario;
 
@@ -39,8 +45,23 @@ public class UsuarioController {
 	// Criar um usuário
 	
 	@PostMapping ("/usuario/create")
-	public Usuario criar(@RequestBody Usuario usuario) {
-		return repository.save(usuario);
+	public Object criar(@RequestBody @Valid Usuario usuario, BindingResult result) {
+		if (result.hasErrors()) {
+	        List<FieldError> errors = result.getFieldErrors();
+	        List<String> message = new ArrayList<>();
+	        for (FieldError e : errors){
+	            message.add("@" + e.getField().toUpperCase() + ":" + e.getDefaultMessage());
+	        }
+	        Erro erro = new Erro();
+			erro.setMensagem("Impossível Criar usuário");
+	        erro.setCausa(message.toString());
+	        return erro;
+	    }
+	    else
+	    {
+	    	return repository.save(usuario);
+	    }
+		
 	}
 	
 	
