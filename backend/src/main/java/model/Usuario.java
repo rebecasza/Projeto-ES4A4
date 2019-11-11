@@ -1,4 +1,4 @@
-package entidades;
+package model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
