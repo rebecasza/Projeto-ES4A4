@@ -1,48 +1,7 @@
-<header class="app-header navbar">
-  <a class="navbar-brand" href="#/dashboard">
-    <h1 id="title">  Academic Planner </h1>
-  </a>
-
-  <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item dropdown" dropdown placement="bottom right">
-    </li>
-  </ul>
-  <button type="button" class="btn btn-primary px-3">
-  <span><i class="pi pi-user" style="font-size: 2em" id="icon"></i></span>
-  </button>
-</header>
-
-<header>
-    <button class="nav-link navbar-toggler" type="button" appSidebarToggler id=button-navbar>
-        <span class="navbar-toggler-icon" style="font-size: 1.25em" id="toggle"><i class="pi pi-bars" id="icon"></i></span>
-    </button>
-</header>
+<app-header></app-header>
 
 <div class="app-body">
-  <app-sidebar [fixed]="false">
-    <nav [perfectScrollbar]>
-      <ul class="nav">
-        <li class="divider"></li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/frontend/src/app/']">
-            <i class="icon-logout"></i>Cadastrar Matéria</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/frontend/src/app/']">
-            <i class="icon-logout"></i>Planejamento de Estudos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/frontend/src/app/']">
-            <i class="icon-logout"></i>Gráficos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" (click)="logout()">
-            <i class="icon-logout"></i> Logout</a>
-        </li>
-        <li class="divider"></li>
-      </ul>
-    </nav>
-  </app-sidebar>
+  <app-menu></app-menu>
 
 
   <main class="main">
@@ -60,7 +19,4 @@
     </div>
   </main>
 </div>
-<app-footer>
-  <span>
-    <a href="">Academic</a> &copy; 2019 Academic</span>
-</app-footer>
+<app-footer></app-footer>

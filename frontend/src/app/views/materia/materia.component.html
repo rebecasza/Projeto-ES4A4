@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<div class="app-body">
+  <app-menu></app-menu>
+
+
+  <main class="main">
+    <div class="container-fluid">
+        <div class="container">
+            <form (submit)="criarMateria(postForm)" #postForm="ngForm">
+              <div class="row">
+                <div class="col-25">
+                  <label>Matéria</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" name="materia" placeholder="Nome da matéria" ngModel #materia="ngModel">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label>Tipo de Média</label>
+                </div>
+                <div class="col-75">
+                  <select id="tipoMedia" name="tipoMedia" ngModel #tipoMedia="ngModel">
+                    <option disabled selected value>Tipo de Média</option>
+                    <option value="aritmetica">Aritmética</option>
+                    <option value="ponderada">Ponderada</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="subject">Descrição</label>
+                </div>
+                <div class="col-75">
+                  <textarea id="subject" name="descricao" placeholder="Descreva a matéria..." rows="4" ngModel #descricao="ngModel"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="buttonSubmit">
+                      <input type="submit" value="Adicionar">
+                  </div>
+              </div>
+            </form>
+          </div>
+    </div>
+  </main>
+</div>
+<app-footer></app-footer>
