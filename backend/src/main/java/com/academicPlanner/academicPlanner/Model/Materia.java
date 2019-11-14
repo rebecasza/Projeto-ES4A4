@@ -92,6 +92,22 @@ public class Materia {
 		}
 	}
 	
+	public Materia(String nome, String descricao, Usuario usuario, List<Nota> notas, float media, int tipoMedia) {
+		super();
+		this.nome = nome;
+		this.descricao = descricao;
+		this.usuario = usuario;
+		this.notas = notas;
+		this.media = media;
+		this.tipoMedia = tipoMedia;
+	}
+	
+	public Materia() {
+		super();
+	}
+	
+	
+	
 	
 	
 }
