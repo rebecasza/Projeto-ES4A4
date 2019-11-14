@@ -7,16 +7,10 @@ import {
 } from './containers';
 
 import { LoginComponent } from '../app/views/login';
-
+import { MateriaComponent} from '../app/views/materia';
+import { NotaComponent} from '../app/views/nota';
 
 export const routes: Routes = [
-  {
-    path: 'home',
-    component: FullLayoutComponent,
-          data: {
-        title: 'Home'
-    },
-  },
   {
     path: '',
     component: LoginComponent,
@@ -24,13 +18,27 @@ export const routes: Routes = [
       title: 'Home'
     }
   },
-    {
+  {
       path: 'app',
       component: FullLayoutComponent,
       data: {
         title: 'Home'
-    },
+    }
+  },
+  {
+    path: 'materia',
+    component: MateriaComponent,
+    data: {
+      title: 'Home'
+    }
+  },
+  {
+    path: 'nota',
+    component: NotaComponent,
+    data: {
+      title: 'Home'
   }
+}
 ];
 
 @NgModule({

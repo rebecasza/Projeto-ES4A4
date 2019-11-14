@@ -1,0 +1,30 @@
+<app-sidebar style="height: 100%;" [fixed]="true">
+    <nav [perfectScrollbar]>
+      <ul class="nav">
+        <li class="divider"></li>
+        <li class="nav-title">
+          <b> Menu </b>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" href="/materia">
+            <i class="icon-logout"></i>Cadastrar Matéria</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" href="/nota">
+            <i class="icon-logout"></i>Cadastrar Nota</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/frontend/src/app/']">
+            <i class="icon-logout"></i>Planejamento de Estudos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/frontend/src/app/']">
+            <i class="icon-logout"></i>Gráficos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="logout()">
+            <i class="icon-logout"></i> Logout</a>
+        </li>
+        <li class="divider"></li>
+      </ul>
+    </nav>
+  </app-sidebar>

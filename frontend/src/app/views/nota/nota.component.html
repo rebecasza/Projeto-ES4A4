@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<div class="app-body">
+  <app-menu></app-menu>
+
+
+  <main class="main">
+    <div class="container-fluid">
+        <div class="container">
+            <form (submit)="addNota(postForm)" #postForm="ngForm">
+              <div class="row">
+                <div class="col-25">
+                  <label>Matéria</label>
+                </div>
+                <div class="col-75">
+                  <select class="form-control" id="materia" name="materia" >
+                      <option disabled selected value>Escolha uma matéria</option>
+                      <option *ngFor="let materia of materia" [ngValue]="materia.nome">{{materia.nome}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-25">
+                    <label>Nota</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="number" name="nota" placeholder="Sua nota" ngModel #nota="ngModel">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label>Peso</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="number" name="peso" placeholder="Peso da nota" ngModel #peso="ngModel">
+                  </div>
+                </div>
+              <div class="row">
+                  <div class="buttonSubmit">
+                      <input type="submit" value="Adicionar">
+                  </div>
+              </div>
+            </form>
+          </div>
+    </div>
+  </main>
+</div>
+<app-footer></app-footer>

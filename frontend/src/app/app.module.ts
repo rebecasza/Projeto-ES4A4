@@ -6,10 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppAsideModule, AppBreadcrumbModule, AppFooterModule, AppHeaderModule, AppSidebarModule } from '@coreui/angular';
+import { AppAsideModule, AppSidebarModule, AppBreadcrumbModule } from '@coreui/angular';
 import { CalendarModule } from 'angular-calendar';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AvatarModule } from 'ng2-avatar';
+
 // Import 3rd party components
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -22,7 +23,11 @@ import { AppRoutingModule } from './app.routing';
 import { FullLayoutComponent} from './containers';
 import { TreeModule } from 'angular-tree-component';
 import { LoginComponent } from './views/login';
-
+import { MateriaComponent } from './views/materia/materia.component';
+import { HeaderComponent } from './containers/header/header.component';
+import { FooterComponent } from './containers/footer/footer.component';
+import { MenuComponent } from './containers/menu/menu.component';
+import { NotaComponent } from './views/nota/nota.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -45,8 +50,6 @@ const APP_CONTAINERS = [
     FullCalendarModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
-    AppFooterModule,
-    AppHeaderModule,
     AppSidebarModule,
 
     PerfectScrollbarModule,
@@ -60,7 +63,12 @@ const APP_CONTAINERS = [
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
-    LoginComponent
+    LoginComponent,
+    MateriaComponent,
+    HeaderComponent,
+    FooterComponent,
+    MenuComponent,
+    NotaComponent
   ],
   entryComponents: [ ],
   bootstrap: [ AppComponent ]
