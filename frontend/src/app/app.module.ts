@@ -18,9 +18,9 @@ import { PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-per
 import { GrowlModule } from 'primeng/growl';
 import { AppComponent } from './app.component';
 // Import routing module
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing';
 // Import containers
-import { CalendarioComponent} from './views/calendario';
+import { FullLayoutComponent} from './containers';
 import { TreeModule } from 'angular-tree-component';
 import { LoginComponent } from './views/login';
 import { MateriaComponent } from './views/materia/materia.component';
@@ -28,11 +28,14 @@ import { HeaderComponent } from './containers/header/header.component';
 import { FooterComponent } from './containers/footer/footer.component';
 import { MenuComponent } from './containers/menu/menu.component';
 import { NotaComponent } from './views/nota/nota.component';
+import { RegistroComponent } from './views/registro/registro.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
-
+const APP_CONTAINERS = [
+  FullLayoutComponent
+]
 @NgModule({
   imports: [
     BrowserModule,
@@ -60,13 +63,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
   declarations: [
     AppComponent,
+    ...APP_CONTAINERS,
     LoginComponent,
     MateriaComponent,
     HeaderComponent,
     FooterComponent,
     MenuComponent,
     NotaComponent,
-    CalendarioComponent
+    RegistroComponent
   ],
   entryComponents: [ ],
   bootstrap: [ AppComponent ]
