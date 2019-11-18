@@ -9,4 +9,5 @@ import com.academicPlanner.academicPlanner.Model.Usuario;
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, Long>{
 
+	Usuario findByEmail(String email);
 }

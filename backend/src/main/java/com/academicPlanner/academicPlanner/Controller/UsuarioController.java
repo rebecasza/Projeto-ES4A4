@@ -35,7 +35,7 @@ public class UsuarioController {
 		this.repository = repository;
 	}
 	
-	// Mostrar todos os usuários 
+	// Mostrar todos os usuï¿½rios 
 	
 	@GetMapping("/all")
 	public List<Usuario> todosUsuarios() {
@@ -44,7 +44,7 @@ public class UsuarioController {
 	} 
 	
 	
-	// Criar um usuário
+	// Criar um usuï¿½rio
 	
 	@PostMapping ("/create")
 	public Object criar(@RequestBody @Valid Usuario usuario, BindingResult result) {
@@ -55,26 +55,32 @@ public class UsuarioController {
 	            message.add("@" + e.getField().toUpperCase() + ":" + e.getDefaultMessage());
 	        }
 	        Erro erro = new Erro();
-			erro.setMensagem("Impossível Criar usuário");
+			erro.setMensagem("Impossï¿½vel Criar usuï¿½rio");
 	        erro.setCausa(message.toString());
 	        return erro;
 	    }
 	    else
 	    {
-	    	return repository.save(usuario);
+	    	Usuario user1 = repository.findByEmail(usuario.getEmail());
+	    	if(user1 != null) {
+	    		Erro erro = new Erro();
+				erro.setMensagem("Impossï¿½vel Criar usuï¿½rio");
+				erro.setCausa("Email jï¿½ utilizado");
+	    		return erro;
+	    	}else {
+	    		return repository.save(usuario);
+	    	}
 	    }
-		
 	}
 	
-	
-	// Puxar um único usuário
+	// Puxar um ï¿½nico usuï¿½rio
 	
 	@GetMapping("/{id}")
 	public Usuario usuarioDetalhe(@PathVariable Long id) {
-	  return repository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado"));
+	  return repository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Usuï¿½rio nï¿½o encontrado"));
 	 }
 	
-	// Editar um usuário
+	// Editar um usuï¿½rio
 	
 	@PutMapping("/{id}")
 	public Usuario usuarioEditar (@RequestBody Usuario usuarioEdit,@PathVariable Long id) {
@@ -86,11 +92,11 @@ public class UsuarioController {
 			usuario.setSenha(usuarioEdit.getSenha());
 			return repository.save(usuario);
 		})
-		.orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado"));
+		.orElseThrow( () -> new ResourceNotFoundException("Usuï¿½rio nï¿½o encontrado"));
 		
 	}
 	
-	// Deletar um usuário
+	// Deletar um usuï¿½rio
 	@DeleteMapping("/{id}")
 	public void usuarioDelete(@PathVariable Long id) {
 		repository.deleteById(id);
