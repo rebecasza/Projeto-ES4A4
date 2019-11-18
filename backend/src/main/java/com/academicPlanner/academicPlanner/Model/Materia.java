@@ -22,7 +22,7 @@ public class Materia {
 	@ManyToOne
 	private Usuario usuario;
 	
-	private List<Nota> notas;
+	//private List<Nota> notas;
 	
 	private float media;
 	private int tipoMedia;
@@ -71,14 +71,14 @@ public class Materia {
 	}
 	
 	
-	public List<Nota> getNotas() {
+	/*public List<Nota> getNotas() {
 		return notas;
 	}
 			
 	public void setNotas(List<Nota> notas) {
 		this.notas = notas;
 	}
-
+*/
 	public void pegaNotas() {
 		// colocar uma query pro banco com notas do mesmo ID
 	}
@@ -92,12 +92,11 @@ public class Materia {
 		}
 	}
 	
-	public Materia(String nome, String descricao, Usuario usuario, List<Nota> notas, float media, int tipoMedia) {
+	public Materia(String nome, String descricao, Usuario usuario, float media, int tipoMedia) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
 		this.usuario = usuario;
-		this.notas = notas;
 		this.media = media;
 		this.tipoMedia = tipoMedia;
 	}

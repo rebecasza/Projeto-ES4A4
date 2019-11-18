@@ -11,7 +11,7 @@ public class Nota {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private long id;
 	
 	private float valor;
 	
@@ -22,10 +22,10 @@ public class Nota {
 	@ManyToOne
 	private Materia materia;
 	
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public float getValor() {
