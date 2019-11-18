@@ -28,6 +28,7 @@ import { HeaderComponent } from './containers/header/header.component';
 import { FooterComponent } from './containers/footer/footer.component';
 import { MenuComponent } from './containers/menu/menu.component';
 import { NotaComponent } from './views/nota/nota.component';
+import { RegistroComponent } from './views/registro/registro.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -68,7 +69,8 @@ const APP_CONTAINERS = [
     HeaderComponent,
     FooterComponent,
     MenuComponent,
-    NotaComponent
+    NotaComponent,
+    RegistroComponent
   ],
   entryComponents: [ ],
   bootstrap: [ AppComponent ]

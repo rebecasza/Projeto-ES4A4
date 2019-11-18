@@ -9,6 +9,7 @@ import {
 import { LoginComponent } from '../app/views/login';
 import { MateriaComponent} from '../app/views/materia';
 import { NotaComponent} from '../app/views/nota';
+import { RegistroComponent } from '../app/views/registro';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,13 @@ export const routes: Routes = [
     component: NotaComponent,
     data: {
       title: 'Home'
+  }
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent,
+    data: {
+      title: 'Cadastro'
   }
 }
 ];
