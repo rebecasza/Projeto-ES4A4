@@ -38,11 +38,33 @@ public class UsuarioController {
 	
 	// Criar um usuário
 	
-	@PostMapping ("/usuario/create")
-	public Usuario criar(@RequestBody Usuario usuario) {
-		return repository.save(usuario);
+	@PostMapping ("/create")
+	public Object criar(@RequestBody @Valid Usuario usuario, BindingResult result) {
+		if (result.hasErrors()) {
+	        List<FieldError> errors = result.getFieldErrors();
+	        List<String> message = new ArrayList<>();
+	        for (FieldError e : errors){
+	            message.add("@" + e.getField().toUpperCase() + ":" + e.getDefaultMessage());
+	        }
+	        Erro erro = new Erro();
+			erro.setMensagem("Impossível Criar usuário");
+	        erro.setCausa(message.toString());
+	        return erro;
+	    }
+	    else
+	    {
+	    	Usuario user1 = repository.findByEmail(usuario.getEmail());
+	    	if(user1 != null) {
+	    		Erro erro = new Erro();
+				erro.setMensagem("Impossível Criar usuário");
+				erro.setCausa("Email já utilizado");
+	    		return erro;
+	    	}else {
+	    		return repository.save(usuario);
+	    	}
+	    }
+
 	}
-	
 	
 	// Puxar um único usuário
 	
