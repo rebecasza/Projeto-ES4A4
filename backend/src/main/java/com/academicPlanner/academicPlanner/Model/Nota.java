@@ -5,21 +5,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Nota {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private long id;
+	
 	private float valor;
+	
 	private int peso;
+	
 	private String descricao;
-	public Long getId() {
+	
+	@ManyToOne
+	private Materia materia;
+	
+	public long getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public float getValor() {
@@ -41,9 +47,4 @@ public class Nota {
 		this.descricao = descricao;
 	}
 	
-	
-	/*
-	private Materia materia;
-	spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-	*/
 }

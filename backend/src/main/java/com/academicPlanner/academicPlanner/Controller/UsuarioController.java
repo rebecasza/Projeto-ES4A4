@@ -76,14 +76,14 @@ public class UsuarioController {
 	// Puxar um �nico usu�rio
 	
 	@GetMapping("/{id}")
-	public Usuario usuarioDetalhe(@PathVariable Long id) {
+	public Usuario usuarioDetalhe(@PathVariable long id) {
 	  return repository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Usu�rio n�o encontrado"));
 	 }
 	
 	// Editar um usu�rio
 	
 	@PutMapping("/{id}")
-	public Usuario usuarioEditar (@RequestBody Usuario usuarioEdit,@PathVariable Long id) {
+	public Usuario usuarioEditar (@RequestBody Usuario usuarioEdit,@PathVariable long id) {
 		
 		return repository.findById(id).map(usuario -> {
 			usuario.setNome(usuarioEdit.getNome());
@@ -98,7 +98,7 @@ public class UsuarioController {
 	
 	// Deletar um usu�rio
 	@DeleteMapping("/{id}")
-	public void usuarioDelete(@PathVariable Long id) {
+	public void usuarioDelete(@PathVariable long id) {
 		repository.deleteById(id);
 	}	
 }

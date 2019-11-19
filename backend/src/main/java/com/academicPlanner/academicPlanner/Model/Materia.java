@@ -1,6 +1,6 @@
 package com.academicPlanner.academicPlanner.Model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,13 +18,12 @@ public class Materia {
 	private String nome;
 	private String descricao;
 	
-	/*
+	
 	@ManyToOne
 	private Usuario usuario;
 	
-	@ManyToOne
-	private ArrayList<Nota> notas;
-*/
+	//private List<Nota> notas;
+	
 	private float media;
 	private int tipoMedia;
 	// tipo 1- média aritmética
@@ -49,15 +48,15 @@ public class Materia {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
 	
-	/*
 	public Usuario getUsuario() {
 		return usuario;
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	*/
+	
 	public float getMedia() {
 		return media;
 	}
@@ -71,11 +70,42 @@ public class Materia {
 		this.tipoMedia = tipoMedia;
 	}
 	
+	
+	/*public List<Nota> getNotas() {
+		return notas;
+	}
+			
+	public void setNotas(List<Nota> notas) {
+		this.notas = notas;
+	}
+*/
+	public void pegaNotas() {
+		// colocar uma query pro banco com notas do mesmo ID
+	}
+	
 	public void calculaMedia() {
 		if(this.tipoMedia == 1) {
-		
+			// Calcular Média aritmetica de acordo com o array notas
+		}
+		else if (this.tipoMedia == 2) {
+			// Calcular Média ponderada de acordo com o array notas
 		}
 	}
+	
+	public Materia(String nome, String descricao, Usuario usuario, float media, int tipoMedia) {
+		super();
+		this.nome = nome;
+		this.descricao = descricao;
+		this.usuario = usuario;
+		this.media = media;
+		this.tipoMedia = tipoMedia;
+	}
+	
+	public Materia() {
+		super();
+	}
+	
+	
 	
 	
 	
