@@ -98,7 +98,8 @@ public class UsuarioController {
 	
 	// Deletar um usuï¿½rio
 	@DeleteMapping("/{id}")
-	public void usuarioDelete(@PathVariable long id) {
+	public String usuarioDelete(@PathVariable long id) {
 		repository.deleteById(id);
+		return "Usuário deletado com sucesso!";
 	}	
 }
