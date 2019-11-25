@@ -19,6 +19,10 @@ public class Estudo {
 
 	@ManyToOne
 	private Materia materia;
+	
+	@ManyToOne
+	private Usuario usuario;
+	
 	private String dataInicio; 
 	private String dataFim;
 	
@@ -42,16 +46,30 @@ public class Estudo {
 		this.dataFim = dataFim;
 	}
 	
-	
-	public Estudo(Materia materia, String dataInicio, String dataFim) {
+	public Estudo(Long id, Materia materia, Usuario usuario, String dataInicio, String dataFim) {
 		super();
+		this.id = id;
 		this.materia = materia;
+		this.usuario = usuario;
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
 	}
-	
 	public Estudo() {
 		super();
+	}
+	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	
