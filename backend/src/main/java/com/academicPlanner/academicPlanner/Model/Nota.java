@@ -46,5 +46,13 @@ public class Nota {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	public Materia getMateria() {
+		return materia;
+	}
+	public void setMateria(Materia materia) {
+		this.materia = materia;
+	}
+	
+	
 	
 }
