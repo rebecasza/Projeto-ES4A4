@@ -1,16 +1,7 @@
-package com.academicPlanner.academicPlanner.Model;
+package com.academicPlanner.academicPlanner.ModelApi;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+public class NotaApi {
 
-@Entity
-public class Nota {
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
 	private float valor;
@@ -18,9 +9,6 @@ public class Nota {
 	private int peso;
 	
 	private String descricao;
-	
-	@ManyToOne
-	private Materia materia;
 	
 	public long getId() {
 		return id;
@@ -46,13 +34,5 @@ public class Nota {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Materia getMateria() {
-		return materia;
-	}
-	public void setMateria(Materia materia) {
-		this.materia = materia;
-	}
-	
-	
 	
 }
