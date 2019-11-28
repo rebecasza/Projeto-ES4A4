@@ -38,9 +38,10 @@ public class MateriaController {
 	//Envia todas as matérias do usuário
 	@GetMapping("/usuario/{user}/materia/all")
 	public List<Materia> todasMaterias(@PathVariable Long user) {
-		// Criar o método no repository findByUser()
+		
 		Usuario userMat = repositoryUser.findById(user).orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado"));
 
+		// Criar o método no repository findByUser()
 	    return (List<Materia>) repository.findByUsuario(userMat);
 
 	} 
@@ -99,7 +100,9 @@ public class MateriaController {
 	// Deletar materia
 	
 	@DeleteMapping("/usuario/{user}/materia/{id}")
-	public void usuarioDelete(@PathVariable Long id) {
+	public String materiaDelete(@PathVariable Long id) {
 		repository.deleteById(id);
+		return "Materia deletada com sucesso!";
 	}
+	
 }
