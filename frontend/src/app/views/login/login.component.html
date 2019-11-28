@@ -8,16 +8,19 @@
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="email" placeholder="email">
+
+    <form (submit)="login()">
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
       <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password</a><br>
-      <a class="underlineHover" href="/registro" (click)="goRegistro()">Sing Up</a>
+      <a class="underlineHover" routerLinkActive="active">Forgot Password</a><br>
+      <a class="underlineHover" routerLinkActive="active" routerLink="/registro">Sign Up</a><br>
+      <!-- Teste App -->
+      <a class="underlineHover" routerLinkActive="active" routerLink="/app">App Test</a>
     </div>
 
   </div>

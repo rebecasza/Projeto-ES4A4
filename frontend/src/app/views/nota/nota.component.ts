@@ -7,6 +7,7 @@ import { Materia } from 'src/app/models/materia';
   templateUrl: './nota.component.html',
   styleUrls: ['./nota.component.css']
 })
+
 export class NotaComponent implements OnInit {
   public materia: Materia[];
   public nota: number;
@@ -22,7 +23,6 @@ export class NotaComponent implements OnInit {
   }
 
   addNota(form: NgForm) {
-    //Problema: não trás a matéria
     this.materia = form.value.materia;
     this.nota = form.value.nota;
     this.peso = form.value.peso;
@@ -30,5 +30,7 @@ export class NotaComponent implements OnInit {
     console.log(this.materia);
     console.log(this.nota);
     console.log(this.peso);
+
+    form.resetForm();
   }
 }

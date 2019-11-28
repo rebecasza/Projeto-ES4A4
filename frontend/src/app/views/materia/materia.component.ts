@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './materia.component.html',
   styleUrls: ['./materia.component.css']
 })
+
 export class MateriaComponent implements OnInit {
 
   constructor(public router: Router) { }
@@ -25,5 +26,7 @@ export class MateriaComponent implements OnInit {
     console.log(this.materia);
     console.log(this.tipo);
     console.log(this.desc);
+
+    form.resetForm();
   }
 }

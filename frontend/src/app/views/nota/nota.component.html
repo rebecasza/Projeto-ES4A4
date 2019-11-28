@@ -1,8 +1,4 @@
-<app-header></app-header>
-
 <div class="app-body">
-  <app-menu></app-menu>
-
 
   <main class="main">
     <div class="container-fluid">
@@ -13,10 +9,10 @@
                   <label>Matéria</label>
                 </div>
                 <div class="col-75">
-                  <select class="form-control" id="materia" name="materia" >
-                      <option disabled selected value>Escolha uma matéria</option>
-                      <option *ngFor="let materia of materia" [ngValue]="materia.nome">{{materia.nome}}</option>
-                  </select>
+                    <select id="materia" name="materia" [(ngModel)]="materia" required>
+                        <option disabled value="" selected>Please Select</option>
+                        <option [value]="materia.nome" *ngFor="let materia of materia">{{materia.nome}}</option>
+                    </select>
                 </div>
               </div>
               <div class="row">
@@ -45,4 +41,3 @@
     </div>
   </main>
 </div>
-<app-footer></app-footer>

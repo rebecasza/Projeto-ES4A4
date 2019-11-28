@@ -1,12 +1,12 @@
 <div class="wrapper fadeInDown">
     <div id="formContent">
       <!-- Tabs Titles -->
-  
+
       <!-- Icon -->
       <div class="fadeIn first">
               <span><i class="pi pi-user" style="font-size: 2em" id="icon"></i></span>
       </div>
-  
+
       <!-- Login Form -->
       <form (submit)="criarUsuario(postForm)" #postForm="ngForm">
         <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="nome"  ngModel #nome="ngModel">
@@ -15,12 +15,11 @@
         <input type="password" id="senha" class="fadeIn third" name="senha" placeholder="senha"  ngModel #senha="ngModel">
         <input type="submit" class="fadeIn fourth" value="Cadastrar">
       </form>
-  
+
       <!-- Remind Passowrd -->
       <div id="formFooter">
-            <a class="underlineHover" href="#">Eu já tenho uma conta!</a><br>
+            <a class="underlineHover" routerLinkActive="active" routerLink="/">Eu já tenho uma conta!</a><br>
       </div>
-  
+
     </div>
   </div>
-  
