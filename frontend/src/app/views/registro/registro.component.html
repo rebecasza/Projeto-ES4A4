@@ -1,4 +1,4 @@
-<div class="wrapper fadeInDown">
+<div class="wrapper fadeInDown" *ngIf="!registro">
     <div id="formContent">
       <!-- Tabs Titles -->
 
@@ -23,3 +23,27 @@
 
     </div>
   </div>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+              <span><i class="pi pi-user" style="font-size: 2em" id="icon"></i></span>
+      </div>
+
+      <!-- Registro = true -->
+      <div class="regOn">
+        <h1>
+          Registro realizado!
+        </h1>
+      </div>
+
+      <!-- Login -->
+      <div id="formFooter">
+            <a class="underlineHover" routerLinkActive="active" routerLink="/">Faça o login!</a><br>
+      </div>
+
+    </div>
+</div>

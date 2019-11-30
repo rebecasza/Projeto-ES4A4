@@ -11,6 +11,8 @@ import { Usuario } from '../../models/usuario';
 
 export class RegistroComponent implements OnInit {
 
+  registro: boolean;
+
   constructor(
     private userService: UsuarioService
   ) { }
@@ -22,6 +24,7 @@ export class RegistroComponent implements OnInit {
   public user: Usuario;
 
   ngOnInit() {
+    this.registro = false;
   }
 
 
@@ -39,6 +42,7 @@ export class RegistroComponent implements OnInit {
     };
 
     this.userService.createUser(this.user);
+    this.registro = true;
   }
 
 }
