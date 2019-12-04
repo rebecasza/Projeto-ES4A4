@@ -2,7 +2,7 @@ package com.academicPlanner.academicPlanner.ModelApi;
 
 public class EstudoApi {
 	
-	private long id;
+	private Long id;
 	private String dataInicio; 
 	private String dataFim;
 	
