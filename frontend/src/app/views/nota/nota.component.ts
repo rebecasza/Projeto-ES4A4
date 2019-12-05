@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Materia } from 'src/app/models/materia';
+import { NotaService } from '../../services/nota.service';
+import { MateriaService } from '../../services/materia.service';
 
 @Component({
   selector: 'app-nota',
@@ -9,28 +10,60 @@ import { Materia } from 'src/app/models/materia';
 })
 
 export class NotaComponent implements OnInit {
-  public materia: Materia[];
-  public nota: number;
+  public materias;
+  public materia;
+  public valor: number;
   public peso: number;
+  public usuario;
+  public nota;
+  public notas;
+  public notasCheck: boolean;
 
-  constructor() { }
+  constructor(
+    public notaService: NotaService,
+    public materiaService: MateriaService
+  ) { }
 
   ngOnInit() {
-    this.materia = [
-      { id: 1, nome: 'História', descricao: 'Teste1'},
-      { id: 2, nome: 'Matemática', descricao: 'Teste2'},
-    ];
+    this.notasCheck = false;
+    this.usuario = {
+      id: 4,
+      nome: 'Admin',
+      sobrenome: 'Master',
+      senha: 'admin',
+      email: 'admin@admin.com'
+    };
+    this.materiaService.getAllMaterias()
+    .then((materias) => {
+      this.materias = materias;
+    });
   }
 
   addNota(form: NgForm) {
     this.materia = form.value.materia;
-    this.nota = form.value.nota;
+    this.valor = form.value.nota;
     this.peso = form.value.peso;
 
-    console.log(this.materia);
-    console.log(this.nota);
-    console.log(this.peso);
+    this.nota = {
+      valor: this.valor,
+      peso: this.peso
+    };
+
+    this.notaService.createNota(this.usuario, this.materia, this.nota);
 
     form.resetForm();
+  }
+
+  getNotasbyMateria(materiaId) {
+    this.notaService.getAllNotas(this.usuario, materiaId)
+    .then((notas) => {
+      this.notas = notas;
+      this.notasCheck = true;
+      console.log(notas);
+    });
+  }
+
+  getNotasbyMateriaOk() {
+    this.notas = '';
   }
 }

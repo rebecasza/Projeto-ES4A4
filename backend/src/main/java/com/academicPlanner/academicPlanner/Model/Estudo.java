@@ -4,9 +4,10 @@ package com.academicPlanner.academicPlanner.Model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.springframework.data.annotation.Id;
+
 
 @Entity
 public class Estudo {
@@ -15,33 +16,24 @@ public class Estudo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 
-	@ManyToOne
-	private Materia materia;
+	private int materia;
 	
-	@ManyToOne
-	private Usuario usuario;
+	private int usuario;
 	
-	private String dataInicio; 
-	private String dataFim;
+	private String data;
 	
 	
-	public Materia getMateria() {
+	public int getMateria() {
 		return materia;
 	}
-	public void setMateria(Materia materia) {
+	public void setMateria(int materia) {
 		this.materia = materia;
 	}
-	public String getDataInicio() {
-		return dataInicio;
+	public String getData() {
+		return data;
 	}
-	public void setDataInicio(String dataInicio) {
-		this.dataInicio = dataInicio;
-	}
-	public String getDataFim() {
-		return dataFim;
-	}
-	public void setDataFim(String dataFim) {
-		this.dataFim = dataFim;
+	public void setData(String data) {
+		this.data = data;
 	}
 	public Long getId() {
 		return id;
@@ -49,22 +41,21 @@ public class Estudo {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Usuario getUsuario() {
+	public int getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(int usuario) {
 		this.usuario = usuario;
 	}
 
 	
 	
-	public Estudo(Long id, Materia materia, Usuario usuario, String dataInicio, String dataFim) {
+	public Estudo(Long id, int materia, int usuario, String data) {
 		super();
 		this.id = id;
 		this.materia = materia;
 		this.usuario = usuario;
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
+		this.data = data;
 	}
 	
 	public Estudo() {

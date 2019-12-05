@@ -1,0 +1,35 @@
+<div class="app-body">
+
+  <main class="main">
+    <div class="container-fluid">
+        <div class="container">
+            <form (submit)="addPlanejamento(postForm)" #postForm="ngForm">
+              <div class="row">
+                <div class="col-25">
+                  <label>Matéria</label>
+                </div>
+                <div class="col-75">
+                    <select id="materia" name="materia" [(ngModel)]="materia" required>
+                        <option disabled value="" selected>Please Select</option>
+                        <option [value]="materias.id" *ngFor="let materias of materias">{{materias.nome}}</option>
+                    </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label>Data</label>
+                </div>
+                <div class="col-75">
+                  <input type="date" name="data" ngModel #nota="ngModel">
+                </div>
+              </div>
+              <div class="row">
+                  <div class="buttonSubmit">
+                      <input type="submit" value="Adicionar">
+                  </div>
+              </div>
+            </form>
+          </div>
+    </div>
+  </main>
+</div>

@@ -3,7 +3,6 @@ import { Http, Response } from '@angular/http';
 import { AppComponent } from '../app.component';
 import { Headers, RequestOptions } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Usuario } from '../models/usuario';
 import { Route, Router } from '@angular/router';
 
 @Injectable()
@@ -26,7 +25,7 @@ export class UsuarioService {
     });
   }
 
-  createUser(user: Usuario) {
+  createUser(user) {
     return this.http.post(AppComponent.API_URL + '/usuario/create', user)
     .toPromise();
   }

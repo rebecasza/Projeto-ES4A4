@@ -64,3 +64,19 @@ label {
   width: 65%;
   margin-top: 6px;
 }
+
+.materias {
+  padding-top: 20px;
+  align-content: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.mat {
+  border: 1px solid #000;
+  margin-bottom: 5px;
+  width: 70%;
+  margin: auto;
+}

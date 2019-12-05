@@ -2,22 +2,15 @@ package com.academicPlanner.academicPlanner.ModelApi;
 
 public class EstudoApi {
 	
-	private long id;
-	private String dataInicio; 
-	private String dataFim;
+	private Long id;
+	private String date;
 	
 	
-	public String getDataInicio() {
-		return dataInicio;
+	public String getData() {
+		return date;
 	}
-	public void setDataInicio(String dataInicio) {
-		this.dataInicio = dataInicio;
-	}
-	public String getDataFim() {
-		return dataFim;
-	}
-	public void setDataFim(String dataFim) {
-		this.dataFim = dataFim;
+	public void setData(String date) {
+		this.date = date;
 	}
 	public long getId() {
 		return id;

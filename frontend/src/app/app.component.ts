@@ -8,18 +8,19 @@ import { Router, NavigationStart } from '@angular/router';
 })
 
 export class AppComponent implements OnInit {
-  title = 'Academic Planner';
-  showHead: boolean = false;
-
-  static API_URL='http://localhost:8080';
-
-
-  @Input() loginTeste: boolean;
 
   constructor(private router: Router) {
 }
 
+  static API_URL = 'http://localhost:8080';
+  title = 'Academic Planner';
+  showHead: boolean;
+
+
+  @Input() loginTeste: boolean;
+
   ngOnInit() {
+    this.showHead = false;
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event['url'] === '/' || event['url'] === '/registro') {

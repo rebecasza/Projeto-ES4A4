@@ -9,9 +9,9 @@
                   <label>Matéria</label>
                 </div>
                 <div class="col-75">
-                    <select id="materia" name="materia" [(ngModel)]="materia" required>
+                    <select id="materia" name="materia" [(ngModel)]="materiaService" required>
                         <option disabled value="" selected>Please Select</option>
-                        <option [value]="materia.nome" *ngFor="let materia of materia">{{materia.nome}}</option>
+                        <option [value]="materias.id" *ngFor="let materias of materias">{{materias.nome}}</option>
                     </select>
                 </div>
               </div>
@@ -39,5 +39,29 @@
             </form>
           </div>
     </div>
+
+    <div class="materias">
+      <h1>Matérias:</h1>
+      <mat-accordion multi=true>
+        <mat-expansion-panel class="mat" *ngFor="let materias of materias">
+          <mat-expansion-panel-header>
+            {{ materias.nome }}
+          </mat-expansion-panel-header>
+          <p> Descrição: {{ materias.descricao }} </p>
+
+          <a mat-button color="primary" (click)="getNotasbyMateria(materias.id)">Notas</a>
+          <a *ngIf=notas mat-button color="warn" (click)="getNotasbyMateriaOk()">Ok</a>
+
+          <div class="notas" *ngIf=notas>
+          <li *ngFor="let notas of notas">
+              <mat-card>
+                Nota: {{ notas.valor }} || Peso: {{ notas.peso }}
+              </mat-card>
+            </li>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
   </main>
 </div>

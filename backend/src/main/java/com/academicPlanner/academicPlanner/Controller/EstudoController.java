@@ -39,18 +39,15 @@ public class EstudoController {
 		this.repository = repository;
 	}
 	//Envia todos os estudo do usuário
-	@GetMapping("/usuario/{user}/estudo/all")
-	public List<Estudo> todasestudo(@PathVariable Long user) {
-		
-		Usuario userMat = repositoryUser.findById(user).orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado"));
-
-	
-	    return (List<Estudo>) repository.findByUsuario(userMat);
+	@GetMapping("/usuario/estudo/all")
+	public List<Estudo> todasestudo() {
+					
+	    return (List<Estudo>) repository.findAll();
 
 	} 
 	// Criar estudo
-	@PostMapping ("/usuario/{user}/estudo")
-	public Object criar(@RequestBody @Valid EstudoApi estudoApi, BindingResult result, @PathVariable Long user) {
+	@PostMapping ("/usuario/{userId}/materia/{materiaId}/estudo")
+	public Object criar(@RequestBody @Valid EstudoApi estudoApi, BindingResult result, @PathVariable int userId, @PathVariable int materiaId) {
 			if (result.hasErrors()) {
 		        List<FieldError> errors = result.getFieldErrors();
 		        List<String> message = new ArrayList<>();
@@ -65,9 +62,9 @@ public class EstudoController {
 		    else
 		    {
 		    	Estudo estudo = new Estudo();
-		    	estudo.setDataInicio(estudoApi.getDataInicio());
-		    	estudo.setDataFim(estudoApi.getDataFim());
-		    	estudo.setUsuario(repositoryUser.findById(user).orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado")));
+		    	estudo.setData(estudoApi.getData());
+		    	estudo.setUsuario(userId);
+		    	estudo.setMateria(materiaId);
 		    	
 		    	return repository.save(estudo);
 		    }
@@ -80,8 +77,7 @@ public class EstudoController {
 	public Estudo estudoEditar (@RequestBody Estudo estudoEdit,@PathVariable long id) {
 		
 		return repository.findById(id).map(estudo -> {
-			estudo.setDataInicio(estudoEdit.getDataInicio());
-			estudo.setDataFim(estudoEdit.getDataFim());
+			estudo.setData(estudoEdit.getData());
 			return repository.save(estudo);
 		})
 		.orElseThrow( () -> new ResourceNotFoundException("Materia não encontrado"));

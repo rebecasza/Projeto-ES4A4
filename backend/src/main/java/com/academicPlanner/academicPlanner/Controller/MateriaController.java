@@ -38,19 +38,16 @@ public class MateriaController {
 	}
 	
 	//Envia todas as matérias do usuário
-	@GetMapping("/usuario/{user}/materia/all")
-	public List<Materia> todasMaterias(@PathVariable Long user) {
+	@GetMapping("/usuario/materia/all")
+	public List<Materia> todasMaterias() {
 		
-		Usuario userMat = repositoryUser.findById(user).orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado"));
-
-		// Criar o método no repository findByUser()
-	    return (List<Materia>) repository.findByUsuario(userMat);
+		return (List<Materia>) repository.findAll();
 
 	} 
 	
 	// Criar materia
-	@PostMapping ("/usuario/{user}/materia")
-	public Object criar(@RequestBody @Valid MateriaApi materiaApi, BindingResult result, @PathVariable Long user) {
+	@PostMapping ("/usuario/{userId}/materia")
+	public Object criar(@RequestBody @Valid MateriaApi materiaApi, BindingResult result, @PathVariable int userId) {
 		if (result.hasErrors()) {
 	        List<FieldError> errors = result.getFieldErrors();
 	        List<String> message = new ArrayList<>();
@@ -68,7 +65,7 @@ public class MateriaController {
 	    	materia.setDescricao(materiaApi.getDescricao());
 	    	materia.setNome(materiaApi.getNome());
 	    	materia.setTipoMedia(materiaApi.getTipoMedia());
-	    	materia.setUsuario(repositoryUser.findById(user).orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado")));
+	    	materia.setUsuario(userId);
 	    	
 	    	return repository.save(materia);
 	    }
@@ -85,7 +82,7 @@ public class MateriaController {
 
 	// Editar materia
 	
-	@PutMapping("/usuario/{user}/materia/{id}")
+	@PutMapping("/usuario/{userId}/materia/{id}")
 	public Materia materiaEditar (@RequestBody Materia materiaEdit,@PathVariable long id) {
 		
 		return repository.findById(id).map(materia -> {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { MateriaService } from '../../services/materia.service';
 
 @Component({
   selector: 'app-materia',
@@ -10,23 +11,66 @@ import { NgForm } from '@angular/forms';
 
 export class MateriaComponent implements OnInit {
 
-  constructor(public router: Router) { }
-  public materia: string;
-  public tipo: string;
+  constructor(
+    public router: Router,
+    public materiaService: MateriaService
+    ) { }
+
+  public materia;
+  public nome: string;
+  public tipo: number;
   public desc: string;
+  public usuario;
+  public materias;
 
   ngOnInit() {
+    this.buscarMaterias();
+    this.usuario = {
+      id: 4,
+      nome: 'Admin',
+      sobrenome: 'Master',
+      senha: 'admin',
+      email: 'admin@admin.com'
+    };
   }
 
   criarMateria(form: NgForm) {
-    this.materia = form.value.materia;
-    this.tipo = form.value.tipoMedia;
+    this.nome = form.value.materia;
+    if (form.value.tipoMedia === 'aritmetica') {
+       this.tipo = 1;
+     } else {
+       if (form.value.tipoMedia === 'ponderada') {
+         this.tipo = 2;
+       }
+     }
+
     this.desc = form.value.descricao;
+    this.materia = {
+      nome: this.nome,
+      tipoMedia: this.tipo,
+      descricao: this.desc
+    };
 
-    console.log(this.materia);
-    console.log(this.tipo);
-    console.log(this.desc);
+    this.materiaService.createMateria(this.usuario, this.materia)
+    .then(() => {
+      this.buscarMaterias();
+      form.resetForm();
+    });
+  }
 
-    form.resetForm();
+  deleteMaterias(materiaId) {
+    console.log(materiaId);
+    this.materiaService.deleteMateria(this.usuario, materiaId)
+    .then(() => {
+    this.buscarMaterias();
+    });
+  }
+
+
+  buscarMaterias() {
+    this.materiaService.getAllMaterias()
+    .then((materias) =>
+      this.materias = materias
+    );
   }
 }

@@ -1,7 +1,5 @@
 package com.academicPlanner.academicPlanner.Model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +17,8 @@ public class Materia {
 	private String descricao;
 	
 	
-	@ManyToOne
-	private Usuario usuario;
+	
+	private int userId;
 	
 	//private List<Nota> notas;
 	
@@ -50,11 +48,11 @@ public class Materia {
 	}
 
 	
-	public Usuario getUsuario() {
-		return usuario;
+	public int getUsuario() {
+		return userId;
 	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUsuario(int userId) {
+		this.userId = userId;
 	}
 	
 	public float getMedia() {
@@ -92,11 +90,11 @@ public class Materia {
 		}
 	}
 	
-	public Materia(String nome, String descricao, Usuario usuario, float media, int tipoMedia) {
+	public Materia(String nome, String descricao, int userId, float media, int tipoMedia) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
-		this.usuario = usuario;
+		this.userId = userId;
 		this.media = media;
 		this.tipoMedia = tipoMedia;
 	}

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../../services/usuario.service';
-import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-registro',
@@ -21,7 +20,7 @@ export class RegistroComponent implements OnInit {
   public sobrenome: string;
   public email: string;
   public senha: string;
-  public user: Usuario;
+  public user;
 
   ngOnInit() {
     this.registro = false;
