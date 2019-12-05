@@ -9,12 +9,13 @@ import { MateriaService } from '../../services/materia.service';
   styleUrls: ['./calendario.component.css']
 })
 
-export class CalendarioComponent implements OnInit{
+export class CalendarioComponent implements OnInit {
   calendarPlugins = [dayGridPlugin];
   public events;
-  public eventsFinal;
+  public eventsFinal: any[] = [];
   public usuario;
   public materia;
+  public calendar;
 
   constructor(
     private estudoService: EstudoService,
@@ -22,6 +23,7 @@ export class CalendarioComponent implements OnInit{
   ) {}
 
   ngOnInit() {
+    this.calendar = false;
     this.usuario = {
       id: 4,
       nome: 'Admin',
@@ -32,21 +34,20 @@ export class CalendarioComponent implements OnInit{
     this.estudoService.getAllEstudos()
     .then((estudos) => {
       this.events = estudos;
-      console.log(this.events);
       this.estudosForEvents(this.events);
+      console.log(this.eventsFinal);
     });
   }
 
   estudosForEvents(estudos) {
-    console.log(estudos);
-    for (let estudo of estudos) {
+    for (const estudo of estudos) {
+      var index = 0;
       this.materiaService.getMateriaId(this.usuario, estudo.materia)
       .then((materia) => {
         this.materia = materia;
-        this.eventsFinal = [
-          { title: this.materia.nome, date: estudo.data }
-        ];
-        console.log(this.eventsFinal);
+        this.eventsFinal[index] = { title: this.materia.nome, date: estudo.data };
+        this.calendar = true;
+        index++;
       });
     }
   }
