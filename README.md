@@ -9,6 +9,6 @@ Os integrantes do grupo são:
 * Erika Garcia 
 * Gabriel 
 * Guilherme
-*Nessaona
+* Nessaona
 * Rebeca
-* Vitor
+* Vitor Massao
