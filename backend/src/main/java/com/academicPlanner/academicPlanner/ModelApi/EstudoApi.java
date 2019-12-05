@@ -3,7 +3,10 @@ package com.academicPlanner.academicPlanner.ModelApi;
 public class EstudoApi {
 	
 	private Long id;
+	
 	private String date;
+
+
 	
 	
 	public String getData() {

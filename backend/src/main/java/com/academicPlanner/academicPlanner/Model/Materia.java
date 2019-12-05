@@ -24,8 +24,8 @@ public class Materia {
 	
 	private float media;
 	private int tipoMedia;
-	// tipo 1- média aritmética
-	// tipo 2- média ponderada
+	// tipo 1- mï¿½dia aritmï¿½tica
+	// tipo 2- mï¿½dia ponderada
 	
 	
 	public Long getId() {
@@ -83,10 +83,10 @@ public class Materia {
 	
 	public void calculaMedia() {
 		if(this.tipoMedia == 1) {
-			// Calcular Média aritmetica de acordo com o array notas
+			// Calcular Mï¿½dia aritmetica de acordo com o array notas
 		}
 		else if (this.tipoMedia == 2) {
-			// Calcular Média ponderada de acordo com o array notas
+			// Calcular Mï¿½dia ponderada de acordo com o array notas
 		}
 	}
 	
