@@ -40,14 +40,18 @@ export class CalendarioComponent implements OnInit {
   }
 
   estudosForEvents(estudos) {
+    var objectLength = Object.keys(estudos).length;
     for (const estudo of estudos) {
       var index = 0;
       this.materiaService.getMateriaId(this.usuario, estudo.materia)
       .then((materia) => {
         this.materia = materia;
         this.eventsFinal[index] = { title: this.materia.nome, date: estudo.data };
-        this.calendar = true;
         index++;
+        console.log(index);
+        if (index === objectLength) {
+          this.calendar = true;
+        }
       });
     }
   }
