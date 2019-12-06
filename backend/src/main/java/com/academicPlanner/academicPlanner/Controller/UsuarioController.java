@@ -48,7 +48,7 @@ public class UsuarioController {
 	
 	// Criar um usuï¿½rio
 	
-	@PostMapping ("")
+	@PostMapping ("/create")
 	public Object criar(@RequestBody @Valid Usuario usuario, BindingResult result) {
 		if (result.hasErrors()) {
 	        List<FieldError> errors = result.getFieldErrors();
@@ -82,6 +82,12 @@ public class UsuarioController {
 	  return repository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Usuï¿½rio nï¿½o encontrado"));
 	 }
 	
+	
+	@GetMapping("/email/{email}")
+	public Usuario usuarioEmail(@PathVariable String email) {
+	  return repository.findByEmail(email);
+	 }
+	
 	// Editar um usuï¿½rio
 	
 	@PutMapping("/{id}")
@@ -104,4 +110,5 @@ public class UsuarioController {
 		repository.deleteById(id);
 		return "Usuário deletado com sucesso!";
 	}	
+	
 }

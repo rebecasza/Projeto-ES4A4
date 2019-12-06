@@ -9,14 +9,17 @@
 
     <!-- Login Form -->
 
-    <form (submit)="login()">
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+    <form (submit)="login(postForm)" #postForm="ngForm">
+      <input type="text" id="login" class="fadeIn second" name="email" placeholder="login" ngModel #nome="ngModel">
+      <input type="password" id="password" class="fadeIn third" name="senha" placeholder="password" ngModel #nome="ngModel">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
-
+ 
+    <span class="text-danger" *ngIf="erroNone">Esse email ainda não foi cadastrado!</span><br>
+    <span class="text-danger" *ngIf="erroWrong">Senha Incorreta!</span><br>
     <!-- Remind Passowrd -->
     <div id="formFooter">
+      
       <a class="underlineHover" routerLinkActive="active">Forgot Password</a><br>
       <a class="underlineHover" routerLinkActive="active" routerLink="/registro">Sign Up</a><br>
       <!-- Teste App -->

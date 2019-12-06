@@ -13,7 +13,7 @@ export class UsuarioService {
   getAllUsers() {
     // define se a função é get, post ou delete
     // entre () define o caminho da função que foi declarado no backend
-    return this.http.get<{ users }>(AppComponent.API_URL + 'usuario/all')
+    return this.http.get<{ users }>(AppComponent.API_URL + '/usuario/all')
     // toPromise() espera a volta da fução
     .toPromise()
     // res é a volta do get, no caso, os users
@@ -33,6 +33,18 @@ export class UsuarioService {
   getUserById(id: number) {
     return this.http.get(AppComponent.API_URL + '/usuario/' + id)
     .toPromise();
+  }
+
+  getUserByEmail(email: string){
+    return this.http.get(AppComponent.API_URL + '/usuario/email/' + email)
+    .toPromise()
+    .then(res => {
+      return res;
+      
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   deleteUserById(id: number) {
