@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     public usuarioService: UsuarioService
     ) { }
 
-  
+
   public user;
   public email: string;
   public senha: string;
@@ -39,18 +39,18 @@ export class LoginComponent implements OnInit {
     .then((user) => {
     this.user = user;
 
-    if (this.user != null){
-      if(this.user.senha == this.senha){
+    if (this.user != null) {
+      if (this.user.senha === this.senha) {
          this.loginTeste = true;
-          this.router.navigate(['/app']);
-           console.log("Login Efetuado!");
-      }else{
-        console.log("Erro!");
+         this.router.navigate(['/app']);
+         console.log('Login Efetuado!');
+      } else {
+        console.log('Erro!');
         this.erroWrong = true;
         this.erroNone = false;
       }
-    }else{
-      console.log("Erro! Usuario não existe!")
+    } else {
+      console.log('Erro! Usuario não existe!');
       this.erroNone = true;
       this.erroWrong = false;
     }

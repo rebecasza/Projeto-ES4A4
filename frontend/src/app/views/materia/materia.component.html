@@ -50,7 +50,7 @@
           </mat-expansion-panel-header>
           <p> Descrição: {{ materias.descricao }} </p>
           <mat-action-row>
-            <a mat-button color="primary" [routerLink]="['/edit' , materias.id]">EDIT</a>
+            <!-- <a mat-button color="primary" [routerLink]="['/edit' , materias.id]">EDIT</a> -->
             <button mat-button color="warn" (click)="deleteMaterias(materias.id)">DELETE</button>
           </mat-action-row>
         </mat-expansion-panel>
