@@ -44,8 +44,21 @@ export class NotaService {
   }
 
   deleteNota(user, materia, nota) {
-    return this.http.delete(AppComponent.API_URL + '/usuario/' + user + 'materia' + materia + '/nota/' + nota.id)
+    return this.http.delete(AppComponent.API_URL + '/usuario/' + user + '/materia/' + materia + '/nota/' + nota.id)
     .toPromise();
   }
+  
+  
+  mediaNota(user, materia) {
+    return this.http.get(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materia + '/nota/media/')
+    .toPromise()
+    .then(res => {
+      return res;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
 
 }

@@ -18,6 +18,7 @@ export class NotaComponent implements OnInit {
   public nota;
   public notas;
   public notasCheck: boolean;
+  public media;
 
   constructor(
     public notaService: NotaService,
@@ -60,6 +61,15 @@ export class NotaComponent implements OnInit {
       this.notas = notas;
       this.notasCheck = true;
       console.log(notas);
+    });
+  }
+
+  getMedia(materiaId) {
+    this.notaService.mediaNota(this.usuario, materiaId)
+    .then((media) => {
+      this.media = media;
+      this.notasCheck = true;
+      console.log(media);
     });
   }
 

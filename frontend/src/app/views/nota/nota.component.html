@@ -49,7 +49,7 @@
           </mat-expansion-panel-header>
           <p> Descrição: {{ materias.descricao }} </p>
 
-          <a mat-button color="primary" (click)="getNotasbyMateria(materias.id)">Notas</a>
+          <a mat-button color="primary" (click)="getNotasbyMateria(materias.id); getMedia(materias.id)">Notas</a>
           <a *ngIf=notas mat-button color="warn" (click)="getNotasbyMateriaOk()">Ok</a>
 
           <div class="notas" *ngIf=notas>
@@ -58,6 +58,9 @@
                 Nota: {{ notas.valor }} || Peso: {{ notas.peso }}
               </mat-card>
             </li>
+            <mat-card>
+                Média = {{ media }}
+            </mat-card>
           </div>
         </mat-expansion-panel>
       </mat-accordion>

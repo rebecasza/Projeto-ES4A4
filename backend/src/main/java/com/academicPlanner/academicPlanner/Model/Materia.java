@@ -81,14 +81,6 @@ public class Materia {
 		// colocar uma query pro banco com notas do mesmo ID
 	}
 	
-	public void calculaMedia() {
-		if(this.tipoMedia == 1) {
-			// Calcular M�dia aritmetica de acordo com o array notas
-		}
-		else if (this.tipoMedia == 2) {
-			// Calcular M�dia ponderada de acordo com o array notas
-		}
-	}
 	
 	public Materia(String nome, String descricao, int userId, float media, int tipoMedia) {
 		super();

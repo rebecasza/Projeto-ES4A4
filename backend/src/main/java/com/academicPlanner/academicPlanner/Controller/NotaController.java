@@ -33,6 +33,7 @@ public class NotaController {
 
 	private NotaRepository repository;
 	private MateriaRepository repositoryMateria;
+	
 
 	public NotaController(NotaRepository repository, MateriaRepository repositoryMateria) {
 		super();
@@ -50,6 +51,35 @@ public class NotaController {
 
 		// Criar o método no repository findByMateria()
 		return  (List<Nota>) repository.findByMateria(mat);
+
+	}
+	
+	@GetMapping("/usuario/{user}/materia/{id}/nota/media")
+	public double media (@PathVariable Long id) {
+		Materia mat = repositoryMateria.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Materia não encontrado"));
+		
+		List<Nota> notas = (List<Nota>) repository.findByMateria(mat);
+		double media = 0;
+		float total = 0;
+		int qtd = 0;
+		if (mat.getTipoMedia() == 1) {
+			for(Nota nota: notas) {
+				total += nota.getValor();
+				qtd += 1;
+			}
+			media = (total/qtd);
+			return media;
+		}else if(mat.getTipoMedia() == 2){
+			for(Nota nota: notas) {
+				total += (nota.getValor()*nota.getPeso());
+				qtd += 1;
+			}
+			media = (total/qtd);
+			return media;
+		}else {
+			return 0;
+		}
 
 	}
 	
