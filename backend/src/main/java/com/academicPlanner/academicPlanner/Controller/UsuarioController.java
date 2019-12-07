@@ -48,7 +48,7 @@ public class UsuarioController {
 	
 	// Criar um usu�rio
 	
-	@PostMapping ("/create")
+	@PostMapping ("")
 	public Object criar(@RequestBody @Valid Usuario usuario, BindingResult result) {
 		if (result.hasErrors()) {
 	        List<FieldError> errors = result.getFieldErrors();

@@ -34,11 +34,14 @@ public class EstudoController {
 	private EstudoRepository repository;
 	private MateriaRepository repositoryMateria;
 	
-	public EstudoController(UsuarioRepository repositoryUser, EstudoRepository repository) {
+	public EstudoController(UsuarioRepository repositoryUser, EstudoRepository repository,
+			MateriaRepository repositoryMateria) {
 		super();
 		this.repositoryUser = repositoryUser;
 		this.repository = repository;
+		this.repositoryMateria = repositoryMateria;
 	}
+
 	//Envia todos os estudos do usuário
 	@GetMapping("/usuario/{user}/estudo/all")
 	public List<Estudo> todasestudo(@PathVariable Long user) {
@@ -48,9 +51,10 @@ public class EstudoController {
 
 	    return (List<Estudo>) repository.findByUsuario(userMat);
 	} 
+	
 	// Criar estudo
-	@PostMapping ("/usuario/{user}/materia/{id}/estudo")
-	public Object criar(@RequestBody @Valid EstudoApi estudoApi, BindingResult result, @PathVariable("user") Long user, @PathVariable("id") Long materia) {
+	@PostMapping ("/usuario/{user}/materia/{idM}/estudo")
+	public Object criar(@RequestBody @Valid EstudoApi estudoApi, BindingResult result, @PathVariable Long user, @PathVariable Long idM) {
 			if (result.hasErrors()) {
 		        List<FieldError> errors = result.getFieldErrors();
 		        List<String> message = new ArrayList<>();
@@ -67,8 +71,7 @@ public class EstudoController {
 		    	Estudo estudo = new Estudo();
 		    	estudo.setData(estudoApi.getData());
 		    	estudo.setUsuario(repositoryUser.findById(user).orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado")));
-	    	//Não funciona, precisa setar a matéria
-		    	estudo.setMateria(repositoryMateria.findById(materia).orElseThrow( () -> new ResourceNotFoundException("Matéria não encontrada")));
+		    	estudo.setMateria(repositoryMateria.findById(idM).orElseThrow( () -> new ResourceNotFoundException("Matéria não encontrada")));
 		    	
 		    	return repository.save(estudo);
 		    }
@@ -94,5 +97,12 @@ public class EstudoController {
 	public String estudoDelete(@PathVariable Long id) {
 		repository.deleteById(id);
 		return "Materia deletada com sucesso!";
+	}
+	
+	
+	// Puxar um estudo pelo id
+	@GetMapping("/usuario/{user}/estudo/{id}")
+	public Estudo estudoDetalhe(@PathVariable Long id) {
+	  return repository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Estudo não encontrado"));
 	}
 }

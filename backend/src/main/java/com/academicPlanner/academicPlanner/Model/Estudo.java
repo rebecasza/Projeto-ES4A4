@@ -6,8 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
+@Table(name = "estudo")
 public class Estudo {
 	
 	@Id
@@ -20,12 +23,15 @@ public class Estudo {
 	@ManyToOne
 	private Usuario usuario;
 	
+	
+	@NotBlank(message = "Data é obrigatório")
 	private String data;
 	
 	
 	public Materia getMateria() {
 		return materia;
 	}
+	
 	public void setMateria(Materia materia) {
 		this.materia = materia;
 	}
