@@ -23,10 +23,9 @@ export class AppComponent implements OnInit {
     this.showHead = false;
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (event['url'] === '/' || event['url'] === '/registro') {
+        if (event.url === '/' || event.url === '/registro') {
           this.showHead = false;
         } else {
-          // console.log("NU")
           this.showHead = true;
         }
       }

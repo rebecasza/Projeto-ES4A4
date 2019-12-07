@@ -35,12 +35,11 @@ export class UsuarioService {
     .toPromise();
   }
 
-  getUserByEmail(email: string){
+  getUserByEmail(email: string) {
     return this.http.get(AppComponent.API_URL + '/usuario/email/' + email)
     .toPromise()
     .then(res => {
       return res;
-      
     })
     .catch(error => {
       console.log(error);
