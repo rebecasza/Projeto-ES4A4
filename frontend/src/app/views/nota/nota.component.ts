@@ -19,6 +19,7 @@ export class NotaComponent implements OnInit {
   public notas;
   public notasCheck: boolean;
   public media;
+  public user;
 
   constructor(
     public notaService: NotaService,
@@ -27,13 +28,8 @@ export class NotaComponent implements OnInit {
 
   ngOnInit() {
     this.notasCheck = false;
-    this.usuario = {
-      id: 1,
-      nome: 'Admin',
-      sobrenome: 'Master',
-      senha: 'admin',
-      email: 'admin@admin.com'
-    };
+    this.user = window.localStorage.getItem('user');
+    this.usuario = JSON.parse(this.user);
     this.materiaService.getAllMaterias(this.usuario)
     .then((materias) => {
       this.materias = materias;

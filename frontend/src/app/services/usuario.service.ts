@@ -11,12 +11,8 @@ export class UsuarioService {
   constructor(private http: HttpClient, public router: Router) {}
 
   getAllUsers() {
-    // define se a função é get, post ou delete
-    // entre () define o caminho da função que foi declarado no backend
     return this.http.get<{ users }>(AppComponent.API_URL + '/usuario/all')
-    // toPromise() espera a volta da fução
     .toPromise()
-    // res é a volta do get, no caso, os users
     .then(res => {
       return res;
     })
@@ -26,7 +22,7 @@ export class UsuarioService {
   }
 
   createUser(user) {
-    return this.http.post(AppComponent.API_URL + '/usuario/create', user)
+    return this.http.post(AppComponent.API_URL + '/usuario', user)
     .toPromise();
   }
 

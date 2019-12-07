@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
     this.usuarioService.getUserByEmail(this.email)
     .then((user) => {
     this.user = user;
+    window.localStorage.setItem('user', JSON.stringify(user));
 
     if (this.user != null) {
       if (this.user.senha === this.senha) {
@@ -54,10 +55,5 @@ export class LoginComponent implements OnInit {
       this.erroWrong = false;
     }
     });
-
-
 }
-    goRegistro() {
-    }
-
 }

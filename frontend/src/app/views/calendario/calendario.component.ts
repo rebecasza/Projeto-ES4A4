@@ -11,6 +11,7 @@ import { MateriaService } from '../../services/materia.service';
 
 export class CalendarioComponent implements OnInit {
   calendarPlugins = [dayGridPlugin];
+  public user;
   public events;
   public eventsFinal: any[] = [];
   public usuario;
@@ -24,18 +25,17 @@ export class CalendarioComponent implements OnInit {
 
   ngOnInit() {
     this.calendar = false;
-    this.usuario = {
-      id: 1,
-      nome: 'Admin',
-      sobrenome: 'Master',
-      senha: 'admin',
-      email: 'admin@admin.com'
-    };
+    this.user = window.localStorage.getItem('user');
+    this.usuario = JSON.parse(this.user);
     this.estudoService.getAllEstudos(this.usuario)
     .then((estudos) => {
       this.events = estudos;
-      this.estudosForEvents(this.events);
-      console.log(this.eventsFinal);
+      const objectLength = Object.keys(this.events).length;
+      if (objectLength === 0) {
+        this.calendar = true;
+      } else {
+        this.estudosForEvents(this.events);
+      }
     });
   }
 
@@ -48,7 +48,6 @@ export class CalendarioComponent implements OnInit {
         this.materia = materia;
         this.eventsFinal[index] = { title: this.materia.nome, date: estudo.data };
         index++;
-        console.log(index);
         if (index === objectLength) {
           this.calendar = true;
         }

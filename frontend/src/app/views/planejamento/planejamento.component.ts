@@ -16,6 +16,7 @@ export class PlanejamentoComponent implements OnInit {
   public data;
   public estudo;
   public estudos;
+  public user;
 
   constructor(
     private materiaService: MateriaService,
@@ -23,13 +24,8 @@ export class PlanejamentoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.usuario = {
-      id: 1,
-      nome: 'Admin',
-      sobrenome: 'Master',
-      senha: 'admin',
-      email: 'admin@admin.com'
-    };
+    this.user = window.localStorage.getItem('user');
+    this.usuario = JSON.parse(this.user);
     this.getPlanejameto();
     this.materiaService.getAllMaterias(this.usuario)
     .then((materias) => {

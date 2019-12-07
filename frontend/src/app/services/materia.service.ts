@@ -21,8 +21,8 @@ export class MateriaService {
     });
   }
 
-  getMateriaId(user, materiaId) {
-    return this.http.get<{ materias }>(AppComponent.API_URL + '/usuario/' + user.id  + '/materia/' + materiaId)
+  getMateriaId(user, materia) {
+    return this.http.get<{ materias }>(AppComponent.API_URL + '/usuario/' + user.id  + '/materia/' + materia.id)
     .toPromise()
     .then(res => {
       return res;

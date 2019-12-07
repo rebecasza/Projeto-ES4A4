@@ -13,7 +13,7 @@ public class MateriaApi {
 	
 	private float media;
 	
-	@NotBlank(message = "Tipo de média é obrigatório!")
+//	@NotBlank(message = "Tipo de média é obrigatório!")
 	private int tipoMedia;
 	// tipo 1- média aritmética
 	// tipo 2- média ponderada

@@ -16,6 +16,7 @@ export class MateriaComponent implements OnInit {
     public materiaService: MateriaService
     ) { }
 
+  public user;
   public materia;
   public nome: string;
   public tipo: number;
@@ -24,13 +25,8 @@ export class MateriaComponent implements OnInit {
   public materias;
 
   ngOnInit() {
-    this.usuario = {
-      id: 1,
-      nome: 'Admin',
-      sobrenome: 'Master',
-      senha: 'admin',
-      email: 'admin@admin.com'
-    };
+    this.user = window.localStorage.getItem('user');
+    this.usuario = JSON.parse(this.user);
     this.buscarMaterias();
   }
 
