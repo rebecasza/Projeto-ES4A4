@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginTeste = false;
-    console.log(this.loginTeste);
     this.erroNone = false;
     this.erroWrong = false;
   }

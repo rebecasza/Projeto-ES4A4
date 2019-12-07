@@ -14,17 +14,19 @@ public class Estudo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 
-	private int materia;
+	@ManyToOne
+	private Materia materia;
 	
-	private int usuario;
+	@ManyToOne
+	private Usuario usuario;
 	
 	private String data;
 	
 	
-	public int getMateria() {
+	public Materia getMateria() {
 		return materia;
 	}
-	public void setMateria(int materia) {
+	public void setMateria(Materia materia) {
 		this.materia = materia;
 	}
 	public String getData() {
@@ -39,16 +41,16 @@ public class Estudo {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(int usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 
 	
 	
-	public Estudo(Long id, int materia, int usuario, String data) {
+	public Estudo(Long id, Materia materia, Usuario usuario, String data) {
 		super();
 		this.id = id;
 		this.materia = materia;

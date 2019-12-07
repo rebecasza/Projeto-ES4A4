@@ -32,22 +32,25 @@ public class EstudoController {
 	
 	private UsuarioRepository repositoryUser;
 	private EstudoRepository repository;
+	private MateriaRepository repositoryMateria;
 	
 	public EstudoController(UsuarioRepository repositoryUser, EstudoRepository repository) {
 		super();
 		this.repositoryUser = repositoryUser;
 		this.repository = repository;
 	}
-	//Envia todos os estudo do usuário
-	@GetMapping("/usuario/estudo/all")
-	public List<Estudo> todasestudo() {
-					
-	    return (List<Estudo>) repository.findAll();
+	//Envia todos os estudos do usuário
+	@GetMapping("/usuario/{user}/estudo/all")
+	public List<Estudo> todasestudo(@PathVariable Long user) {
 
+		Usuario userMat = repositoryUser.findById(user).orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado"));
+
+
+	    return (List<Estudo>) repository.findByUsuario(userMat);
 	} 
 	// Criar estudo
-	@PostMapping ("/usuario/{userId}/materia/{materiaId}/estudo")
-	public Object criar(@RequestBody @Valid EstudoApi estudoApi, BindingResult result, @PathVariable int userId, @PathVariable int materiaId) {
+	@PostMapping ("/usuario/{user}/materia/{id}/estudo")
+	public Object criar(@RequestBody @Valid EstudoApi estudoApi, BindingResult result, @PathVariable("user") Long user, @PathVariable("id") Long materia) {
 			if (result.hasErrors()) {
 		        List<FieldError> errors = result.getFieldErrors();
 		        List<String> message = new ArrayList<>();
@@ -63,8 +66,9 @@ public class EstudoController {
 		    {
 		    	Estudo estudo = new Estudo();
 		    	estudo.setData(estudoApi.getData());
-		    	estudo.setUsuario(userId);
-		    	estudo.setMateria(materiaId);
+		    	estudo.setUsuario(repositoryUser.findById(user).orElseThrow( () -> new ResourceNotFoundException("Usuário não encontrado")));
+	    	//Não funciona, precisa setar a matéria
+		    	estudo.setMateria(repositoryMateria.findById(materia).orElseThrow( () -> new ResourceNotFoundException("Matéria não encontrada")));
 		    	
 		    	return repository.save(estudo);
 		    }

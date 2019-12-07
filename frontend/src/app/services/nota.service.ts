@@ -10,8 +10,8 @@ import { Route, Router } from '@angular/router';
 export class NotaService {
   constructor(private http: HttpClient, public router: Router) {}
 
-  getAllNotas(user, materia) {
-    return this.http.get<{ notas }>(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materia + '/nota/all')
+  getAllNotas(user, materiaId) {
+    return this.http.get<{ notas }>(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materiaId + '/nota/all')
     .toPromise()
     .then(res => {
       return res;
@@ -21,8 +21,8 @@ export class NotaService {
     });
   }
 
-  createNota(user, materia, nota) {
-    return this.http.post(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materia + '/nota/', nota)
+  createNota(user, materiaId, nota) {
+    return this.http.post(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materiaId + '/nota/', nota)
     .toPromise()
     .then(res => {
       return res;
@@ -32,8 +32,8 @@ export class NotaService {
     });
   }
 
-  editNota(user, materia, nota) {
-    return this.http.get(AppComponent.API_URL + '/usuario/' + user + 'materia' + materia + '/nota/' + nota.id)
+  editNota(user, materiaId, nota) {
+    return this.http.get(AppComponent.API_URL + '/usuario/' + user.id + 'materia' + materiaId + '/nota/' + nota.id)
     .toPromise()
     .then(res => {
       return res;
@@ -43,12 +43,11 @@ export class NotaService {
     });
   }
 
-  deleteNota(user, materia, nota) {
-    return this.http.delete(AppComponent.API_URL + '/usuario/' + user + '/materia/' + materia + '/nota/' + nota.id)
+  deleteNota(user, materiaId, nota) {
+    return this.http.delete(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materiaId + '/nota/' + nota.id)
     .toPromise();
   }
-  
-  
+
   mediaNota(user, materia) {
     return this.http.get(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materia + '/nota/media/')
     .toPromise()

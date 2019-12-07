@@ -28,13 +28,13 @@ export class NotaComponent implements OnInit {
   ngOnInit() {
     this.notasCheck = false;
     this.usuario = {
-      id: 4,
+      id: 1,
       nome: 'Admin',
       sobrenome: 'Master',
       senha: 'admin',
       email: 'admin@admin.com'
     };
-    this.materiaService.getAllMaterias()
+    this.materiaService.getAllMaterias(this.usuario)
     .then((materias) => {
       this.materias = materias;
     });

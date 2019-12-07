@@ -10,8 +10,8 @@ import { Route, Router } from '@angular/router';
 export class MateriaService {
   constructor(private http: HttpClient, public router: Router) {}
 
-  getAllMaterias() {
-    return this.http.get<{ materias }>(AppComponent.API_URL + '/usuario/materia/all')
+  getAllMaterias(user) {
+    return this.http.get<{ materias }>(AppComponent.API_URL + '/usuario/' + user.id + '/materia/all')
     .toPromise()
     .then(res => {
       return res;
@@ -44,8 +44,8 @@ export class MateriaService {
     });
   }
 
-  editMateria(user, materia) {
-    return this.http.get(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materia)
+  editMateria(user, materiaId) {
+    return this.http.get(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materiaId)
     .toPromise()
     .then(res => {
       return res;
@@ -55,8 +55,8 @@ export class MateriaService {
     });
   }
 
-  deleteMateria(user, materia) {
-    return this.http.delete(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materia)
+  deleteMateria(user, materiaId) {
+    return this.http.delete(AppComponent.API_URL + '/usuario/' + user.id + '/materia/' + materiaId)
     .toPromise();
   }
 

@@ -18,7 +18,8 @@ public class Materia {
 	
 	
 	
-	private int userId;
+	@ManyToOne
+	private Usuario usuario;
 	
 	//private List<Nota> notas;
 	
@@ -48,11 +49,11 @@ public class Materia {
 	}
 
 	
-	public int getUsuario() {
-		return userId;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void setUsuario(int userId) {
-		this.userId = userId;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	public float getMedia() {
@@ -82,11 +83,11 @@ public class Materia {
 	}
 	
 	
-	public Materia(String nome, String descricao, int userId, float media, int tipoMedia) {
+	public Materia(String nome, String descricao, Usuario usuario, float media, int tipoMedia) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
-		this.userId = userId;
+		this.usuario = usuario;
 		this.media = media;
 		this.tipoMedia = tipoMedia;
 	}

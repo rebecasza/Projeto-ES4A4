@@ -23,15 +23,15 @@ export class PlanejamentoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getPlanejameto();
     this.usuario = {
-      id: 4,
+      id: 1,
       nome: 'Admin',
       sobrenome: 'Master',
       senha: 'admin',
       email: 'admin@admin.com'
     };
-    this.materiaService.getAllMaterias()
+    this.getPlanejameto();
+    this.materiaService.getAllMaterias(this.usuario)
     .then((materias) => {
       this.materias = materias;
     });
@@ -39,6 +39,7 @@ export class PlanejamentoComponent implements OnInit {
 
   addPlanejamento(form: NgForm) {
     this.materia = form.value.materia;
+    console.log(this.materia);
     this.data = form.value.data;
 
     this.estudo = {
@@ -52,10 +53,9 @@ export class PlanejamentoComponent implements OnInit {
   }
 
   getPlanejameto() {
-    this.estudoService.getAllEstudos()
+    this.estudoService.getAllEstudos(this.usuario)
     .then((estudos) => {
       this.estudos = estudos;
-      console.log(estudos);
     });
   }
 }

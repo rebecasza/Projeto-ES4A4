@@ -25,13 +25,13 @@ export class CalendarioComponent implements OnInit {
   ngOnInit() {
     this.calendar = false;
     this.usuario = {
-      id: 4,
+      id: 1,
       nome: 'Admin',
       sobrenome: 'Master',
       senha: 'admin',
       email: 'admin@admin.com'
     };
-    this.estudoService.getAllEstudos()
+    this.estudoService.getAllEstudos(this.usuario)
     .then((estudos) => {
       this.events = estudos;
       this.estudosForEvents(this.events);

@@ -24,14 +24,14 @@ export class MateriaComponent implements OnInit {
   public materias;
 
   ngOnInit() {
-    this.buscarMaterias();
     this.usuario = {
-      id: 4,
+      id: 1,
       nome: 'Admin',
       sobrenome: 'Master',
       senha: 'admin',
       email: 'admin@admin.com'
     };
+    this.buscarMaterias();
   }
 
   criarMateria(form: NgForm) {
@@ -59,7 +59,6 @@ export class MateriaComponent implements OnInit {
   }
 
   deleteMaterias(materiaId) {
-    console.log(materiaId);
     this.materiaService.deleteMateria(this.usuario, materiaId)
     .then(() => {
     this.buscarMaterias();
@@ -68,7 +67,7 @@ export class MateriaComponent implements OnInit {
 
 
   buscarMaterias() {
-    this.materiaService.getAllMaterias()
+    this.materiaService.getAllMaterias(this.usuario)
     .then((materias) =>
       this.materias = materias
     );
