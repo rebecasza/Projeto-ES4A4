@@ -1,4 +1,4 @@
-***Academic Planner (ES4A4 + LP2A2)***
+***Academic Planner (ES4A4 + LP2A2)*** [![Build Status](https://travis-ci.org/rebecasza/Projeto-ES4A4.svg?branch=master)](https://travis-ci.org/rebecasza/Projeto-ES4A4)
 
 Repositório destinado para o projeto de Engenharia de Software.
 
