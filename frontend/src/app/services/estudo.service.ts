@@ -10,8 +10,8 @@ import { Route, Router } from '@angular/router';
 export class EstudoService {
   constructor(private http: HttpClient, public router: Router) {}
 
-  getAllEstudos() {
-    return this.http.get<{ estudos }>(AppComponent.API_URL + '/usuario/estudo/all')
+  getAllEstudos(user) {
+    return this.http.get<{estudos}>(AppComponent.API_URL + '/usuario/' + user.id + '/estudo/all')
     .toPromise()
     .then(res => {
       return res;
@@ -44,7 +44,7 @@ export class EstudoService {
   }
 
   deleteEstudo(user, estudo) {
-    return this.http.delete(AppComponent.API_URL + '/usuario/' + user + '/estudo/' + estudo.id)
+    return this.http.delete(AppComponent.API_URL + '/usuario/' + user.id + '/estudo/' + estudo.id)
     .toPromise();
   }
 

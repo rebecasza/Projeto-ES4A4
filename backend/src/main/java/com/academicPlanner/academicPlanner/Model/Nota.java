@@ -7,12 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.academicPlanner.academicPlanner.Repository.MateriaRepository;
 import com.academicPlanner.academicPlanner.Repository.NotaRepository;
 import com.academicPlanner.academicPlanner.Service.ResourceNotFoundException;
 
 @Entity
+@Table(name = "nota")
 public class Nota {
 	
 	private NotaRepository repository;

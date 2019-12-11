@@ -1,13 +1,19 @@
 package com.academicPlanner.academicPlanner.ModelApi;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class MateriaApi {
 	
 	private Long id;
+	
+	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 	private String descricao;
 	
 	private float media;
+	
+//	@NotBlank(message = "Tipo de média é obrigatório!")
 	private int tipoMedia;
 	// tipo 1- média aritmética
 	// tipo 2- média ponderada

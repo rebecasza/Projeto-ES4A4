@@ -1,0 +1,12 @@
+language: node_js #a linguagem utilizada na nossa aplicação
+
+node_js:
+  - '8.9.4' #a versão do node
+
+cache:
+  yarn: true
+  directories:
+    - node_modules #o diretório do node modulos
+
+script:
+  - npm test #o comando que o CI irá executar para rodar os testes

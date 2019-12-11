@@ -16,6 +16,7 @@ export class PlanejamentoComponent implements OnInit {
   public data;
   public estudo;
   public estudos;
+  public user;
 
   constructor(
     private materiaService: MateriaService,
@@ -23,15 +24,10 @@ export class PlanejamentoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user = window.localStorage.getItem('user');
+    this.usuario = JSON.parse(this.user);
     this.getPlanejameto();
-    this.usuario = {
-      id: 4,
-      nome: 'Admin',
-      sobrenome: 'Master',
-      senha: 'admin',
-      email: 'admin@admin.com'
-    };
-    this.materiaService.getAllMaterias()
+    this.materiaService.getAllMaterias(this.usuario)
     .then((materias) => {
       this.materias = materias;
     });
@@ -39,6 +35,7 @@ export class PlanejamentoComponent implements OnInit {
 
   addPlanejamento(form: NgForm) {
     this.materia = form.value.materia;
+    console.log(this.materia);
     this.data = form.value.data;
 
     this.estudo = {
@@ -52,10 +49,9 @@ export class PlanejamentoComponent implements OnInit {
   }
 
   getPlanejameto() {
-    this.estudoService.getAllEstudos()
+    this.estudoService.getAllEstudos(this.usuario)
     .then((estudos) => {
       this.estudos = estudos;
-      console.log(estudos);
     });
   }
 }

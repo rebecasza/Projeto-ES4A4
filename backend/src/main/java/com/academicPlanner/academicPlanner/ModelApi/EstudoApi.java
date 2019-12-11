@@ -1,9 +1,12 @@
 package com.academicPlanner.academicPlanner.ModelApi;
 
+import javax.validation.constraints.NotBlank;
+
 public class EstudoApi {
 	
 	private Long id;
 	
+	@NotBlank(message = "Data é obrigatório")
 	private String date;
 
 

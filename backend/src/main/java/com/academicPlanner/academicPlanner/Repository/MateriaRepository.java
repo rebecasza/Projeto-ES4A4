@@ -12,7 +12,6 @@ import com.academicPlanner.academicPlanner.Model.Usuario;
 @Repository
 public interface MateriaRepository extends CrudRepository<Materia, Long>{
 
-
-	
+	List<Materia> findByUsuario(Usuario user);	
 	
 }

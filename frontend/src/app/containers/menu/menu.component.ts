@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
 
   logout() {
     sessionStorage.clear();
+    localStorage.clear();
     this.router.navigateByUrl('/login');
     location.reload();
   }

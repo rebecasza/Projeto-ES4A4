@@ -68,7 +68,7 @@ public class NotaController {
 	
 	
 	// Criar nota
-		@PostMapping ("/usuario/{userId}/materia/{id}/nota")
+	@PostMapping ("/usuario/{user}/materia/{id}/nota")
 		public Object criar(@RequestBody @Valid NotaApi notaApi, BindingResult result, @PathVariable Long id) {
 			if (result.hasErrors()) {
 		        List<FieldError> errors = result.getFieldErrors();

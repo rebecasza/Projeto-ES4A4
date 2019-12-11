@@ -1,12 +1,10 @@
 package com.academicPlanner.academicPlanner.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+
 
 @Entity
+@Table(name = "materia")
 public class Materia {
 
 	@Id
@@ -14,15 +12,19 @@ public class Materia {
 	private Long id;
 	
 	private String nome;
+	
 	private String descricao;
 	
 	
 	
-	private int userId;
+	@ManyToOne
+	private Usuario usuario;
 	
 	//private List<Nota> notas;
 	
 	private float media;
+	
+	
 	private int tipoMedia;
 	// tipo 1- m�dia aritm�tica
 	// tipo 2- m�dia ponderada
@@ -48,11 +50,11 @@ public class Materia {
 	}
 
 	
-	public int getUsuario() {
-		return userId;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void setUsuario(int userId) {
-		this.userId = userId;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	public float getMedia() {
@@ -82,11 +84,11 @@ public class Materia {
 	}
 	
 	
-	public Materia(String nome, String descricao, int userId, float media, int tipoMedia) {
+	public Materia(String nome, String descricao, Usuario usuario, float media, int tipoMedia) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
-		this.userId = userId;
+		this.usuario = usuario;
 		this.media = media;
 		this.tipoMedia = tipoMedia;
 	}
