@@ -48,6 +48,18 @@ public class testeNota {
 	        assertNotNull(response.getBody());
 	    }
 	    
+	    @Test
+	    public void testGetOneNota() {
+	    	int id = 1;
+	    	int user = 1;
+	    	int idNota = 1;
+	        HttpHeaders headers = new HttpHeaders();
+	        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+	        ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/usuario/" + user +"/materia/" + id + "/nota/" + idNota,
+	                HttpMethod.GET, entity, String.class);
+	        assertNotNull(response.getBody());
+	    }
+	    
 	    
 	    @Test
 	    public void testCriarNota() throws ParseException {

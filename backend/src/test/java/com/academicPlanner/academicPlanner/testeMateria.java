@@ -47,6 +47,17 @@ public class testeMateria {
 	        assertNotNull(response.getBody());
 	    }
 	    
+	    @Test
+	    public void testGetOneMateria() {
+	    	int user = 1;
+	    	int id = 1;
+	        HttpHeaders headers = new HttpHeaders();
+	        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+	        ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/usuario/"+user+"/materia/"+ id,
+	                HttpMethod.GET, entity, String.class);
+	        assertNotNull(response.getBody());
+	    }
+	    
 	    
 	    @Test
 	    public void testCriarMaterias() throws ParseException {
