@@ -53,7 +53,7 @@ public class testeUsuario {
 	    }
 	    
 	    @Test
-	    public void testCriar() throws ParseException {
+	    public void testCriarUsuario() throws ParseException {
 	        usuario.setNome("Erika");
 	        usuario.setSobrenome("Garcia");
 	        usuario.setEmail("erika.garcia@email.com");
