@@ -30,6 +30,7 @@ import { NotaComponent } from './views/nota/nota.component';
 import { RegistroComponent } from './views/registro/registro.component';
 import { CalendarioComponent} from './views/calendario';
 import { PlanejamentoComponent } from './views/planejamento/planejamento.component';
+import { TopicoComponent } from './views/topico/topico.component';
 // Angular materials
 import {  MatExpansionModule,
           MatButtonModule,
@@ -39,6 +40,7 @@ import { UsuarioService } from './services/usuario.service';
 import { MateriaService } from './services/materia.service';
 import { NotaService } from './services/nota.service';
 import { EstudoService } from './services/estudo.service';
+import { TopicoService } from './services/topico.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -85,13 +87,15 @@ const APP_CONTAINERS = [
     NotaComponent,
     RegistroComponent,
     CalendarioComponent,
-    PlanejamentoComponent
+    PlanejamentoComponent,
+    TopicoComponent
   ],
   providers: [
     UsuarioService,
     MateriaService,
     NotaService,
-    EstudoService
+    EstudoService,
+    TopicoService
   ],
   entryComponents: [],
   bootstrap: [ AppComponent ]

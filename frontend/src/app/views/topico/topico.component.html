@@ -1,0 +1,69 @@
+<div class="app-body">
+
+    <main class="main">
+      <div class="container-fluid">
+          <div class="container">
+              <form (submit)="addTopico(postForm)" #postForm="ngForm">
+                <div class="row">
+                  <div class="col-25">
+                    <label>Matéria</label>
+                  </div>
+                  <div class="col-75">
+                      <select id="materia" name="materia" [(ngModel)]="materiaService" required>
+                          <option disabled value="" selected>Please Select</option>
+                          <option [value]="materias.id" *ngFor="let materias of materias">{{materias.nome}}</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                      <label>Tópico</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="nome" placeholder="Tópico" ngModel #nome="ngModel">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label>Descrição</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea id="subject" name="descricao" placeholder="Insira a bibliografia..." rows="4" ngModel #descricao="ngModel"></textarea>
+                    </div>
+                  </div>
+                <div class="row">
+                    <div class="buttonSubmit">
+                        <input type="submit" value="Adicionar">
+                    </div>
+                </div>
+              </form>
+            </div>
+      </div>
+  
+      <div class="materias">
+        <h1>Matérias:</h1>
+        <mat-accordion multi=true>
+          <mat-expansion-panel class="mat" *ngFor="let materias of materias">
+            <mat-expansion-panel-header>
+              {{ materias.nome }}
+            </mat-expansion-panel-header>
+            <p> Descrição: {{ materias.descricao }} </p>
+  
+            <a mat-button color="primary" (click)="getTopicosbyMateria(materias.id)">Tópicos</a>
+            <a *ngIf=topicos mat-button color="warn" (click)="getTopicosbyMateriaOk()">Ok</a>
+  
+            <div class="topicos" *ngIf=topicos>
+            <li *ngFor="let topicos of topicos">
+                <mat-card>
+                  Tópico: {{ topicos.nome }} <br>
+                  Bibliografia: {{ topicos.descricao }}
+                </mat-card>
+              </li>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+  
+    </main>
+  </div>
+  

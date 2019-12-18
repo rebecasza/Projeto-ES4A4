@@ -58,7 +58,7 @@ public class TopicoController
             erro.setCausa(message.toString());
             return erro;
         }
-        final Topico topico = new Topico();
+        Topico topico = new Topico();
         topico.setNome(topicoApi.getNome());
         topico.setDescricao(topicoApi.getDescricao());
         topico.setMateria(this.repositoryMateria.findById(id).orElseThrow(() -> new ResourceNotFoundException("Materia n\u00e3o encontrada")));

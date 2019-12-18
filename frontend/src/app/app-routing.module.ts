@@ -8,6 +8,7 @@ import { MateriaComponent} from './views/materia';
 import { NotaComponent} from './views/nota';
 import { RegistroComponent } from './views/registro';
 import { PlanejamentoComponent } from './views/planejamento/planejamento.component';
+import { TopicoComponent } from './views/topico/topico.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -16,7 +17,8 @@ export const routes: Routes = [
   { path: 'edit/:materiasId', component: MateriaComponent },
   { path: 'nota', component: NotaComponent },
   { path: 'registro', component: RegistroComponent },
-  { path: 'planejamento', component: PlanejamentoComponent }
+  { path: 'planejamento', component: PlanejamentoComponent },
+  { path: 'topico', component: TopicoComponent}
 ];
 
 @NgModule({
