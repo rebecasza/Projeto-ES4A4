@@ -37,7 +37,7 @@
     "font-awesome": "^4.7.0",
     "fullcalendar": "^3.10.1",
     "jquery": "^3.4.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "ng2-avatar": "^2.3.1",
     "ng2-charts": "^2.3.0",
     "ngx-bootstrap": "^5.2.0",
